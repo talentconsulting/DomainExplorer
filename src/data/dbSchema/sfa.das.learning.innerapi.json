@@ -1,0 +1,771 @@
+[
+    {
+        "tableName": "__RefactorLog",
+        "columns": [
+            {
+                "columnName": "OperationKey",
+                "dataType": "uniqueidentifier",
+                "is_nullable": false,
+                "primaryKey": true
+            }
+        ]
+    },
+    {
+        "tableName": "ApprenticeshipEpisode",
+        "columns": [
+            {
+                "columnName": "Key",
+                "dataType": "uniqueidentifier",
+                "is_nullable": false,
+                "primaryKey": true
+            },
+            {
+                "columnName": "LearningKey",
+                "dataType": "uniqueidentifier",
+                "is_nullable": false,
+                "primaryKey": false
+            },
+            {
+                "columnName": "ApprovalsApprenticeshipId",
+                "dataType": "bigint",
+                "is_nullable": false,
+                "primaryKey": false
+            },
+            {
+                "columnName": "IsDeleted",
+                "dataType": "bit",
+                "is_nullable": false,
+                "primaryKey": false
+            },
+            {
+                "columnName": "Ukprn",
+                "dataType": "bigint",
+                "is_nullable": false,
+                "primaryKey": false
+            },
+            {
+                "columnName": "EmployerAccountId",
+                "dataType": "bigint",
+                "is_nullable": false,
+                "primaryKey": false
+            },
+            {
+                "columnName": "FundingType",
+                "dataType": "nvarchar",
+                "is_nullable": false,
+                "primaryKey": false
+            },
+            {
+                "columnName": "FundingPlatform",
+                "dataType": "int",
+                "is_nullable": true,
+                "primaryKey": false
+            },
+            {
+                "columnName": "FundingEmployerAccountId",
+                "dataType": "bigint",
+                "is_nullable": true,
+                "primaryKey": false
+            },
+            {
+                "columnName": "LegalEntityName",
+                "dataType": "nvarchar",
+                "is_nullable": false,
+                "primaryKey": false
+            },
+            {
+                "columnName": "AccountLegalEntityId",
+                "dataType": "bigint",
+                "is_nullable": true,
+                "primaryKey": false
+            },
+            {
+                "columnName": "TrainingCode",
+                "dataType": "nchar",
+                "is_nullable": false,
+                "primaryKey": false
+            },
+            {
+                "columnName": "TrainingCourseVersion",
+                "dataType": "nvarchar",
+                "is_nullable": true,
+                "primaryKey": false
+            },
+            {
+                "columnName": "PaymentsFrozen",
+                "dataType": "bit",
+                "is_nullable": false,
+                "primaryKey": false
+            },
+            {
+                "columnName": "IsRemoved",
+                "dataType": "bit",
+                "is_nullable": false,
+                "primaryKey": false
+            },
+            {
+                "columnName": "WithdrawalDate",
+                "dataType": "datetime",
+                "is_nullable": true,
+                "primaryKey": false
+            },
+            {
+                "columnName": "PauseDate",
+                "dataType": "datetime",
+                "is_nullable": true,
+                "primaryKey": false
+            }
+        ],
+        "relationships": [
+            {
+                "columnName": "LearningKey",
+                "targetTable": "ApprenticeshipLearning",
+                "targetColumn": "Key"
+            }
+        ]
+    },
+    {
+        "tableName": "ApprenticeshipLearning",
+        "columns": [
+            {
+                "columnName": "Key",
+                "dataType": "uniqueidentifier",
+                "is_nullable": false,
+                "primaryKey": true
+            },
+            {
+                "columnName": "LearnerKey",
+                "dataType": "uniqueidentifier",
+                "is_nullable": false,
+                "primaryKey": false
+            },
+            {
+                "columnName": "CompletionDate",
+                "dataType": "datetime",
+                "is_nullable": true,
+                "primaryKey": false
+            },
+            {
+                "columnName": "AchievementDate",
+                "dataType": "datetime",
+                "is_nullable": true,
+                "primaryKey": false
+            }
+        ],
+        "relationships": [
+            {
+                "columnName": "LearnerKey",
+                "targetTable": "Learner",
+                "targetColumn": "Key"
+            }
+        ]
+    },
+    {
+        "tableName": "ApprenticeshipLearningSupport",
+        "columns": [
+            {
+                "columnName": "Key",
+                "dataType": "uniqueidentifier",
+                "is_nullable": false,
+                "primaryKey": true
+            },
+            {
+                "columnName": "LearningKey",
+                "dataType": "uniqueidentifier",
+                "is_nullable": false,
+                "primaryKey": false
+            },
+            {
+                "columnName": "EpisodeKey",
+                "dataType": "uniqueidentifier",
+                "is_nullable": false,
+                "primaryKey": false
+            },
+            {
+                "columnName": "StartDate",
+                "dataType": "datetime",
+                "is_nullable": false,
+                "primaryKey": false
+            },
+            {
+                "columnName": "EndDate",
+                "dataType": "datetime",
+                "is_nullable": false,
+                "primaryKey": false
+            }
+        ],
+        "relationships": [
+            {
+                "columnName": "LearningKey",
+                "targetTable": "ApprenticeshipLearning",
+                "targetColumn": "Key"
+            },
+            {
+                "columnName": "EpisodeKey",
+                "targetTable": "ApprenticeshipEpisode",
+                "targetColumn": "Key"
+            }
+        ]
+    },
+    {
+        "tableName": "EnglishAndMaths",
+        "columns": [
+            {
+                "columnName": "Key",
+                "dataType": "uniqueidentifier",
+                "is_nullable": false,
+                "primaryKey": true
+            },
+            {
+                "columnName": "LearningKey",
+                "dataType": "uniqueidentifier",
+                "is_nullable": false,
+                "primaryKey": false
+            },
+            {
+                "columnName": "StartDate",
+                "dataType": "datetime",
+                "is_nullable": false,
+                "primaryKey": false
+            },
+            {
+                "columnName": "PlannedEndDate",
+                "dataType": "datetime",
+                "is_nullable": false,
+                "primaryKey": false
+            },
+            {
+                "columnName": "Course",
+                "dataType": "nchar",
+                "is_nullable": false,
+                "primaryKey": false
+            },
+            {
+                "columnName": "WithdrawalDate",
+                "dataType": "datetime",
+                "is_nullable": true,
+                "primaryKey": false
+            },
+            {
+                "columnName": "CompletionDate",
+                "dataType": "datetime",
+                "is_nullable": true,
+                "primaryKey": false
+            },
+            {
+                "columnName": "Amount",
+                "dataType": "decimal",
+                "is_nullable": false,
+                "primaryKey": false
+            },
+            {
+                "columnName": "PauseDate",
+                "dataType": "datetime",
+                "is_nullable": true,
+                "primaryKey": false
+            },
+            {
+                "columnName": "LearnAimRef",
+                "dataType": "varchar",
+                "is_nullable": false,
+                "primaryKey": false
+            },
+            {
+                "columnName": "CombinedFundingAdjustmentPercentage",
+                "dataType": "decimal",
+                "is_nullable": true,
+                "primaryKey": false
+            }
+        ],
+        "relationships": [
+            {
+                "columnName": "LearningKey",
+                "targetTable": "ApprenticeshipLearning",
+                "targetColumn": "Key"
+            }
+        ]
+    },
+    {
+        "tableName": "EnglishAndMathsBreakInLearning",
+        "columns": [
+            {
+                "columnName": "Key",
+                "dataType": "uniqueidentifier",
+                "is_nullable": false,
+                "primaryKey": true
+            },
+            {
+                "columnName": "EnglishAndMathsKey",
+                "dataType": "uniqueidentifier",
+                "is_nullable": false,
+                "primaryKey": false
+            },
+            {
+                "columnName": "StartDate",
+                "dataType": "datetime",
+                "is_nullable": false,
+                "primaryKey": false
+            },
+            {
+                "columnName": "EndDate",
+                "dataType": "datetime",
+                "is_nullable": false,
+                "primaryKey": false
+            },
+            {
+                "columnName": "PriorPeriodExpectedEndDate",
+                "dataType": "datetime",
+                "is_nullable": false,
+                "primaryKey": false
+            }
+        ],
+        "relationships": [
+            {
+                "columnName": "EnglishAndMathsKey",
+                "targetTable": "EnglishAndMaths",
+                "targetColumn": "Key"
+            }
+        ]
+    },
+    {
+        "tableName": "EpisodeBreakInLearning",
+        "columns": [
+            {
+                "columnName": "Key",
+                "dataType": "uniqueidentifier",
+                "is_nullable": false,
+                "primaryKey": true
+            },
+            {
+                "columnName": "EpisodeKey",
+                "dataType": "uniqueidentifier",
+                "is_nullable": false,
+                "primaryKey": false
+            },
+            {
+                "columnName": "StartDate",
+                "dataType": "datetime",
+                "is_nullable": false,
+                "primaryKey": false
+            },
+            {
+                "columnName": "EndDate",
+                "dataType": "datetime",
+                "is_nullable": false,
+                "primaryKey": false
+            },
+            {
+                "columnName": "PriorPeriodExpectedEndDate",
+                "dataType": "datetime",
+                "is_nullable": false,
+                "primaryKey": false
+            }
+        ],
+        "relationships": [
+            {
+                "columnName": "EpisodeKey",
+                "targetTable": "ApprenticeshipEpisode",
+                "targetColumn": "Key"
+            }
+        ]
+    },
+    {
+        "tableName": "EpisodePrice",
+        "columns": [
+            {
+                "columnName": "Key",
+                "dataType": "uniqueidentifier",
+                "is_nullable": false,
+                "primaryKey": true
+            },
+            {
+                "columnName": "EpisodeKey",
+                "dataType": "uniqueidentifier",
+                "is_nullable": false,
+                "primaryKey": false
+            },
+            {
+                "columnName": "StartDate",
+                "dataType": "datetime",
+                "is_nullable": false,
+                "primaryKey": false
+            },
+            {
+                "columnName": "EndDate",
+                "dataType": "datetime",
+                "is_nullable": false,
+                "primaryKey": false
+            },
+            {
+                "columnName": "TrainingPrice",
+                "dataType": "money",
+                "is_nullable": true,
+                "primaryKey": false
+            },
+            {
+                "columnName": "EndPointAssessmentPrice",
+                "dataType": "money",
+                "is_nullable": true,
+                "primaryKey": false
+            },
+            {
+                "columnName": "TotalPrice",
+                "dataType": "money",
+                "is_nullable": true,
+                "primaryKey": false
+            }
+        ],
+        "relationships": [
+            {
+                "columnName": "EpisodeKey",
+                "targetTable": "ApprenticeshipEpisode",
+                "targetColumn": "Key"
+            }
+        ]
+    },
+    {
+        "tableName": "Learner",
+        "columns": [
+            {
+                "columnName": "Key",
+                "dataType": "uniqueidentifier",
+                "is_nullable": false,
+                "primaryKey": true
+            },
+            {
+                "columnName": "Uln",
+                "dataType": "nvarchar",
+                "is_nullable": false,
+                "primaryKey": false
+            },
+            {
+                "columnName": "FirstName",
+                "dataType": "nvarchar",
+                "is_nullable": false,
+                "primaryKey": false
+            },
+            {
+                "columnName": "LastName",
+                "dataType": "nvarchar",
+                "is_nullable": false,
+                "primaryKey": false
+            },
+            {
+                "columnName": "DateOfBirth",
+                "dataType": "datetime",
+                "is_nullable": false,
+                "primaryKey": false
+            },
+            {
+                "columnName": "EmailAddress",
+                "dataType": "nvarchar",
+                "is_nullable": true,
+                "primaryKey": false
+            },
+            {
+                "columnName": "HasEHCP",
+                "dataType": "bit",
+                "is_nullable": false,
+                "primaryKey": false
+            },
+            {
+                "columnName": "IsCareLeaver",
+                "dataType": "bit",
+                "is_nullable": false,
+                "primaryKey": false
+            },
+            {
+                "columnName": "CareLeaverEmployerConsentGiven",
+                "dataType": "bit",
+                "is_nullable": false,
+                "primaryKey": false
+            }
+        ]
+    },
+    {
+        "tableName": "LearningHistory",
+        "columns": [
+            {
+                "columnName": "Key",
+                "dataType": "uniqueidentifier",
+                "is_nullable": false,
+                "primaryKey": true
+            },
+            {
+                "columnName": "LearningId",
+                "dataType": "uniqueidentifier",
+                "is_nullable": false,
+                "primaryKey": false
+            },
+            {
+                "columnName": "CreatedOn",
+                "dataType": "datetime",
+                "is_nullable": false,
+                "primaryKey": false
+            },
+            {
+                "columnName": "State",
+                "dataType": "nvarchar",
+                "is_nullable": false,
+                "primaryKey": false
+            }
+        ],
+        "relationships": [
+            {
+                "columnName": "LearningId",
+                "targetTable": "ApprenticeshipLearning",
+                "targetColumn": "Key"
+            }
+        ]
+    },
+    {
+        "tableName": "ShortCourseEpisode",
+        "columns": [
+            {
+                "columnName": "Key",
+                "dataType": "uniqueidentifier",
+                "is_nullable": false,
+                "primaryKey": true
+            },
+            {
+                "columnName": "LearningKey",
+                "dataType": "uniqueidentifier",
+                "is_nullable": false,
+                "primaryKey": false
+            },
+            {
+                "columnName": "Ukprn",
+                "dataType": "bigint",
+                "is_nullable": false,
+                "primaryKey": false
+            },
+            {
+                "columnName": "EmployerAccountId",
+                "dataType": "bigint",
+                "is_nullable": false,
+                "primaryKey": false
+            },
+            {
+                "columnName": "StartDate",
+                "dataType": "datetime",
+                "is_nullable": false,
+                "primaryKey": false
+            },
+            {
+                "columnName": "ExpectedEndDate",
+                "dataType": "datetime",
+                "is_nullable": false,
+                "primaryKey": false
+            },
+            {
+                "columnName": "WithdrawalDate",
+                "dataType": "datetime",
+                "is_nullable": true,
+                "primaryKey": false
+            },
+            {
+                "columnName": "TrainingCode",
+                "dataType": "varchar",
+                "is_nullable": false,
+                "primaryKey": false
+            },
+            {
+                "columnName": "ApprovalsApprenticeshipId",
+                "dataType": "bigint",
+                "is_nullable": false,
+                "primaryKey": false
+            },
+            {
+                "columnName": "IsApproved",
+                "dataType": "bit",
+                "is_nullable": false,
+                "primaryKey": false
+            },
+            {
+                "columnName": "Price",
+                "dataType": "money",
+                "is_nullable": false,
+                "primaryKey": false
+            },
+            {
+                "columnName": "LearnerRef",
+                "dataType": "varchar",
+                "is_nullable": false,
+                "primaryKey": false
+            },
+            {
+                "columnName": "LearningType",
+                "dataType": "tinyint",
+                "is_nullable": false,
+                "primaryKey": false
+            },
+            {
+                "columnName": "EmployerType",
+                "dataType": "tinyint",
+                "is_nullable": false,
+                "primaryKey": false
+            },
+            {
+                "columnName": "TransferSenderId",
+                "dataType": "bigint",
+                "is_nullable": true,
+                "primaryKey": false
+            },
+            {
+                "columnName": "IsRemoved",
+                "dataType": "bit",
+                "is_nullable": false,
+                "primaryKey": false
+            }
+        ],
+        "relationships": [
+            {
+                "columnName": "LearningKey",
+                "targetTable": "ShortCourseLearning",
+                "targetColumn": "Key"
+            }
+        ]
+    },
+    {
+        "tableName": "ShortCourseLearning",
+        "columns": [
+            {
+                "columnName": "Key",
+                "dataType": "uniqueidentifier",
+                "is_nullable": false,
+                "primaryKey": true
+            },
+            {
+                "columnName": "LearnerKey",
+                "dataType": "uniqueidentifier",
+                "is_nullable": false,
+                "primaryKey": false
+            },
+            {
+                "columnName": "CompletionDate",
+                "dataType": "datetime",
+                "is_nullable": true,
+                "primaryKey": false
+            }
+        ],
+        "relationships": [
+            {
+                "columnName": "LearnerKey",
+                "targetTable": "Learner",
+                "targetColumn": "Key"
+            }
+        ]
+    },
+    {
+        "tableName": "ShortCourseLearningSupport",
+        "columns": [
+            {
+                "columnName": "Key",
+                "dataType": "uniqueidentifier",
+                "is_nullable": false,
+                "primaryKey": true
+            },
+            {
+                "columnName": "LearningKey",
+                "dataType": "uniqueidentifier",
+                "is_nullable": false,
+                "primaryKey": false
+            },
+            {
+                "columnName": "EpisodeKey",
+                "dataType": "uniqueidentifier",
+                "is_nullable": false,
+                "primaryKey": false
+            },
+            {
+                "columnName": "StartDate",
+                "dataType": "datetime",
+                "is_nullable": false,
+                "primaryKey": false
+            },
+            {
+                "columnName": "EndDate",
+                "dataType": "datetime",
+                "is_nullable": false,
+                "primaryKey": false
+            }
+        ],
+        "relationships": [
+            {
+                "columnName": "LearningKey",
+                "targetTable": "ShortCourseLearning",
+                "targetColumn": "Key"
+            },
+            {
+                "columnName": "EpisodeKey",
+                "targetTable": "ShortCourseEpisode",
+                "targetColumn": "Key"
+            }
+        ]
+    },
+    {
+        "tableName": "ShortCourseMilestone",
+        "columns": [
+            {
+                "columnName": "Key",
+                "dataType": "uniqueidentifier",
+                "is_nullable": false,
+                "primaryKey": true
+            },
+            {
+                "columnName": "EpisodeKey",
+                "dataType": "uniqueidentifier",
+                "is_nullable": false,
+                "primaryKey": false
+            },
+            {
+                "columnName": "Milestone",
+                "dataType": "nvarchar",
+                "is_nullable": false,
+                "primaryKey": false
+            }
+        ],
+        "relationships": [
+            {
+                "columnName": "EpisodeKey",
+                "targetTable": "ShortCourseEpisode",
+                "targetColumn": "Key"
+            }
+        ]
+    },
+    {
+        "tableName": "sysdiagrams",
+        "columns": [
+            {
+                "columnName": "name",
+                "dataType": "sysname",
+                "is_nullable": false,
+                "primaryKey": false
+            },
+            {
+                "columnName": "principal_id",
+                "dataType": "int",
+                "is_nullable": false,
+                "primaryKey": false
+            },
+            {
+                "columnName": "diagram_id",
+                "dataType": "int",
+                "is_nullable": false,
+                "primaryKey": true
+            },
+            {
+                "columnName": "version",
+                "dataType": "int",
+                "is_nullable": true,
+                "primaryKey": false
+            },
+            {
+                "columnName": "definition",
+                "dataType": "varbinary",
+                "is_nullable": true,
+                "primaryKey": false
+            }
+        ]
+    }
+]

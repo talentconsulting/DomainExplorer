@@ -1,0 +1,10 @@
+{
+    "name": "Learner Data Outer",
+    "description": "APIM Outer api",
+    "calls":[
+      "sfa.das.learning.innerapi",
+      "coursesApi", 
+      "das.collection.calendar", 
+      "sfa.das.funding.apprenticeshipearnings"],
+    "subscribedEvents":[]
+  }

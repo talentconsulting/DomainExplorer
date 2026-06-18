@@ -1,0 +1,4 @@
+{
+    "name": "Earnings Database",
+    "description": "Db for storing earnings. It is updated and read from Earnings Inner and Azure Function"
+}

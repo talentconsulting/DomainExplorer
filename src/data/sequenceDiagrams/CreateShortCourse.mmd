@@ -1,0 +1,47 @@
+sequenceDiagram
+    title Create ShortCourse
+
+    participant Submit Learner Data
+    participant Learner Data Outer
+    participant Courses Api
+    participant Learning Inner Api
+    participant Earnings Inner Api
+
+    Submit Learner Data ->> Learner Data Outer: CreateShortCourse (Post)
+
+    Learner Data Outer ->> Courses Api: Get Courses Lookup (Get)
+
+    Courses Api ->> Learner Data Outer : Ok 200 + Course Lookup Data
+   
+
+    alt No existing short course learning
+
+        Learner Data Outer ->> Learning Inner Api: CreateDraftShortCourse (Post)
+
+        Note over Learning Inner Api: Create learning
+
+        Learning Inner Api ->> Learner Data Outer : Ok 200
+
+        Learner Data Outer ->> Earnings Inner Api: CreateUnapprovedShortCourseLearning (Post)
+
+        Note over Earnings Inner Api: Create earnings
+
+        Earnings Inner Api ->> Learner Data Outer : Ok 200
+
+    else Reinstating
+
+        Learner Data Outer ->> Learning Inner Api: CreateDraftShortCourse (Post)
+
+        Note over Learning Inner Api: Update and reinstate learning
+        
+        Learning Inner Api ->> Learner Data Outer : Ok 200
+
+        Learner Data Outer ->> Earnings Inner Api: UpdateShortCourseOnProgramme (Put)
+
+        Note over Earnings Inner Api: Update earnings
+
+        Earnings Inner Api ->> Learner Data Outer : Ok 200
+    end
+
+
+    Learner Data Outer ->> Submit Learner Data: Accepted 202

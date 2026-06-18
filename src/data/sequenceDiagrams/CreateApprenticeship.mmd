@@ -1,0 +1,121 @@
+flowchart TD
+%% ========= REGION 1: API =========
+subgraph LC["LearningController"]
+A([POST /ukprn/apprenticeships])
+B[Create CreateDraftApprenticeshipLearningCommand<br/>from request.ToUpdateModel]
+end
+
+%% ========= REGION 2: Mapping =========
+subgraph MAP["CreateDraftApprenticeshipExtensions"]
+    M1[Map API request to LearningUpdateContext]
+end
+
+%% ========= REGION 3: Dispatch =========
+subgraph DISP["CommandDispatcher"]
+    D1[Resolve ICommandHandler<CreateDraftApprenticeshipLearningCommand, Result>]
+    D2{Handler found?}
+    D3[Throw CommandDispatcherException]
+end
+
+%% ========= REGION 4: Command Handler =========
+subgraph CMD["CreateDraftApprenticeshipLearningCommandHandler"]
+    H1[Get learner by ULN]
+    H2{Learner exists?}
+    H3[Return null]
+    H4[Get apprenticeship learning by learner key]
+    H5{Learning exists?}
+    H6[Return null]
+    H7{LatestEpisode.IsRemoved?}
+    H8[Return null]
+    H9[Call learning.Update]
+    H10[Call learner.Update]
+    H11[Combine changes]
+    H12[Add LearnerUpdatedEvent]
+    H13{PersonalDetails changed?}
+    H14[Add PersonalDetailsChangedEvent]
+    H15[Persist learner + learning]
+    H16[Return CreateDraftApprenticeshipLearningCommandResult]
+end
+
+%% ========= REGION 5: Domain (Learning) =========
+subgraph LEARNDM["ApprenticeshipLearningDomainModel"]
+    L1[ReinstateIfRemoved]
+    L2{Was removed?}
+    L3[Reinstate latest episode<br/>+ add LearningReinstatedEvent<br/>+ add Reinstated change]
+    L4[Update learning details]
+    L5[Update English/Maths details]
+    L6[Update learning support]
+    L7[Update prices]
+    L8[Update expected end date]
+    L9{Expected end date changed?}
+    L10[Add EndDateChangedEvent]
+    L11[Update withdrawal date]
+    L12{Withdrawal date present?}
+    L13[Withdraw + LearningWithdrawnEvent]
+    L14[Reverse withdrawal + WithdrawalRevertedEvent]
+    L15[Update pause date]
+    L16[Update breaks in learning]
+    L17[Update achievement date]
+end
+
+%% ========= REGION 6: Domain (Learner) =========
+subgraph LEARDM["LearnerDomainModel"]
+    R1[Update personal details]
+    R2[Update date of birth]
+    R3{DOB changed?}
+    R4[Add DateOfBirthChangedEvent]
+    R5[Update care details]
+end
+
+%% ========= REGION 7: Repositories =========
+subgraph REPO["Repositories"]
+    P1[LearnerRepository.GetByUln]
+    P2[ApprenticeshipLearningRepository.GetByLearnerKey]
+    P3[LearnerRepository.Update]
+    P4[ApprenticeshipLearningRepository.Update]
+end
+
+%% Flow
+A --> M1 --> B --> D1 --> D2
+D2 -- No --> D3
+D2 -- Yes --> H1
+H1 --> P1 --> H2
+H2 -- No --> H3
+H2 -- Yes --> H4
+H4 --> P2 --> H5
+H5 -- No --> H6
+H5 -- Yes --> H7
+H7 -- No --> H8
+H7 -- Yes --> H9
+
+H9 --> L1 --> L2
+L2 -- Yes --> L3 --> L4
+L2 -- No --> L4
+L4 --> L5 --> L6 --> L7 --> L8 --> L9
+L9 -- Yes --> L10 --> L11
+L9 -- No --> L11
+L11 --> L12
+L12 -- Yes --> L13 --> L15
+L12 -- No --> L14 --> L15
+L15 --> L16 --> L17 --> H10
+
+H10 --> R1 --> R2 --> R3
+R3 -- Yes --> R4 --> R5 --> H11
+R3 -- No --> R5 --> H11
+
+H11 --> H12 --> H13
+H13 -- Yes --> H14 --> H15
+H13 -- No --> H15
+H15 --> P3
+H15 --> P4
+P3 --> H16
+P4 --> H16
+
+%% Region colors
+style LC fill:#E8F4FD,stroke:#1D70B8,stroke-width:2px,color:#0B0C0C
+style MAP fill:#FFF4E5,stroke:#B25E09,stroke-width:2px,color:#0B0C0C
+style DISP fill:#F3E8FF,stroke:#6F42C1,stroke-width:2px,color:#0B0C0C
+style CMD fill:#EAF7EA,stroke:#2B8A3E,stroke-width:2px,color:#0B0C0C
+style LEARNDM fill:#FFECEF,stroke:#C92A2A,stroke-width:2px,color:#0B0C0C
+style LEARDM fill:#FFF9DB,stroke:#F08C00,stroke-width:2px,color:#0B0C0C
+style REPO fill:#F1F3F5,stroke:#495057,stroke-width:2px,color:#0B0C0C

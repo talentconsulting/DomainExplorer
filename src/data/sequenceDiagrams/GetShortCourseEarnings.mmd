@@ -1,0 +1,21 @@
+sequenceDiagram
+    title Get ShortCourse Earnings
+
+    participant Submit Learner Data
+    participant Learner Data Outer
+    participant Learning Inner Api
+    participant Earnings Inner Api
+
+
+    Submit Learner Data ->> Learner Data Outer: GetShortCourseEarnings (Get)
+
+    Learner Data Outer ->> Learning Inner Api: GetForEarnings (Get)
+
+    Learning Inner Api ->> Learner Data Outer : Ok 200 + learnings
+
+    loop Parallel for each learning
+        Learner Data Outer ->> Earnings Inner Api: GetFm99ShortCourseEarnings (Get) by learningKey
+        Earnings Inner Api ->> Learner Data Outer : Ok 200 + earnings
+    end
+
+    Learner Data Outer ->> Submit Learner Data: Ok 200 + earnings for requested provider

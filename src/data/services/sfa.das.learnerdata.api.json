@@ -1,0 +1,6 @@
+{
+    "name": "Learner Data Inner Api",
+    "description": "Stores information about new learners which gets consumed by approvals",
+    "calls":[],
+    "subscribedEvents":[]
+}

@@ -1,0 +1,92 @@
+[
+    {
+        "id": "__RefactorLog",
+        "x": 4308,
+        "y": 1013
+    },
+    {
+        "id": "ApprenticeshipAdditionalPayment",
+        "x": 436,
+        "y": 192
+    },
+    {
+        "id": "ApprenticeshipEarningsProfile",
+        "x": 1059,
+        "y": 651
+    },
+    {
+        "id": "ApprenticeshipEarningsProfileHistory",
+        "x": 1666,
+        "y": 645
+    },
+    {
+        "id": "ApprenticeshipEpisode",
+        "x": 1073,
+        "y": 280
+    },
+    {
+        "id": "ApprenticeshipEpisodePrice",
+        "x": 1564,
+        "y": -37
+    },
+    {
+        "id": "ApprenticeshipInstalment",
+        "x": 1056,
+        "y": 1053
+    },
+    {
+        "id": "ApprenticeshipLearning",
+        "x": 1659,
+        "y": 276
+    },
+    {
+        "id": "ApprenticeshipPeriodInLearning",
+        "x": 1073,
+        "y": -70
+    },
+    {
+        "id": "EnglishAndMaths",
+        "x": 301,
+        "y": 540
+    },
+    {
+        "id": "EnglishAndMathsInstalment",
+        "x": -15,
+        "y": 988
+    },
+    {
+        "id": "EnglishAndMathsPeriodInLearning",
+        "x": 535,
+        "y": 994
+    },
+    {
+        "id": "ShortCourseEarningsProfile",
+        "x": 2300,
+        "y": 643
+    },
+    {
+        "id": "ShortCourseEarningsProfileHistory",
+        "x": 2309,
+        "y": 1205
+    },
+    {
+        "id": "ShortCourseEpisode",
+        "x": 2294,
+        "y": 270
+    },
+    {
+        "id": "ShortCourseInstalment",
+        "x": 2305,
+        "y": 999
+    },
+    {
+        "id": "ShortCourseLearning",
+        "x": 2290,
+        "y": -62
+    },
+    {
+        "id": "sysdiagrams",
+        "x": 4948,
+        "y": 1013
+    }
+]

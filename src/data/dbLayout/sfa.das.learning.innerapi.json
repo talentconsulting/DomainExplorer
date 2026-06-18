@@ -1,0 +1,67 @@
+[
+    {
+        "id": "ApprenticeshipEpisode",
+        "x": 48,
+        "y": 355
+    },
+    {
+        "id": "ApprenticeshipLearning",
+        "x": 25,
+        "y": -27
+    },
+    {
+        "id": "ApprenticeshipLearningSupport",
+        "x": -589,
+        "y": 296
+    },
+    {
+        "id": "EnglishAndMaths",
+        "x": -615,
+        "y": -296
+    },
+    {
+        "id": "EnglishAndMathsBreakInLearning",
+        "x": -615,
+        "y": 20
+    },
+    {
+        "id": "EpisodeBreakInLearning",
+        "x": -578,
+        "y": 524
+    },
+    {
+        "id": "EpisodePrice",
+        "x": 600,
+        "y": 515
+    },
+    {
+        "id": "Learner",
+        "x": 143,
+        "y": -317
+    },
+    {
+        "id": "LearningHistory",
+        "x": 533,
+        "y": 25
+    },
+    {
+        "id": "ShortCourseEpisode",
+        "x": 1040,
+        "y": 144
+    },
+    {
+        "id": "ShortCourseLearning",
+        "x": 1057,
+        "y": -362
+    },
+    {
+        "id": "ShortCourseLearningSupport",
+        "x": 706,
+        "y": -173
+    },
+    {
+        "id": "ShortCourseMilestone",
+        "x": 1057,
+        "y": 554
+    }
+]

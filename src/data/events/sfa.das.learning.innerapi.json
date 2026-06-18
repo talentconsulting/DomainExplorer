@@ -1,0 +1,148 @@
+[
+    {
+        "id": "SFA.DAS.Learning.Types.LearningApprovedEvent",
+        "name": "LearningApprovedEvent",
+        "description": "Raised when an existing learning record is approved.",
+        "payload": [
+            {
+                "field": "learningKey",
+                "type": "guid",
+                "required": true,
+                "description": "Unique identifier of the learning record."
+            },
+            {
+                "field": "episodeKey",
+                "type": "guid",
+                "required": true,
+                "description": "Unique identifier of the approved episode."
+            }
+        ]
+    },
+    {
+        "id": "SFA.DAS.Learning.Types.EndDateChangedEvent",
+        "name": "EndDateChangedEvent",
+        "description": "Raised when a learning planned end date changes.",
+        "payload": [
+            {
+                "field": "learningKey",
+                "type": "guid",
+                "required": true
+            },
+            {
+                "field": "approvalsApprenticeshipId",
+                "type": "long",
+                "required": true
+            },
+            {
+                "field": "plannedEndDate",
+                "type": "datetime",
+                "required": true
+            }
+        ]
+    },
+    {
+        "id": "SFA.DAS.Learning.Types.LearningWithdrawnEvent",
+        "name": "LearningWithdrawnEvent",
+        "description": "Raised when a learning record is withdrawn.",
+        "payload": [
+            {
+                "field": "learningKey",
+                "type": "guid",
+                "required": true
+            },
+            {
+                "field": "apprenticeshipId",
+                "type": "long",
+                "required": true
+            },
+            {
+                "field": "withdrawalDate",
+                "type": "datetime",
+                "required": true
+            }
+        ]
+    },
+    {
+        "id": "SFA.DAS.Learning.Types.LearningWithdrawalRevertedEvent",
+        "name": "LearningWithdrawalRevertedEvent",
+        "description": "Raised when a previously withdrawn learning record is reinstated from withdrawal.",
+        "payload": [
+            {
+                "field": "learningKey",
+                "type": "guid",
+                "required": true
+            },
+            {
+                "field": "approvalsApprenticeshipId",
+                "type": "long",
+                "required": true
+            }
+        ]
+    },
+    {
+        "id": "SFA.DAS.Learning.Types.PersonalDetailsChangedEvent",
+        "name": "PersonalDetailsChangedEvent",
+        "description": "Raised when learner personal details are updated for a learning record.",
+        "payload": [
+            {
+                "field": "learningKey",
+                "type": "guid",
+                "required": true
+            },
+            {
+                "field": "approvalsApprenticeshipId",
+                "type": "long",
+                "required": true
+            },
+            {
+                "field": "firstName",
+                "type": "string",
+                "required": true
+            },
+            {
+                "field": "lastName",
+                "type": "string",
+                "required": true
+            },
+            {
+                "field": "emailAddress",
+                "type": "string",
+                "required": false
+            }
+        ]
+    },
+    {
+        "id": "SFA.DAS.Learning.Types.LearningRemovedEvent",
+        "name": "LearningRemovedEvent",
+        "description": "Raised when a learning record is removed.",
+        "payload": [
+            {
+                "field": "learningKey",
+                "type": "guid",
+                "required": true
+            },
+            {
+                "field": "apprenticeshipId",
+                "type": "long",
+                "required": true
+            }
+        ]
+    },
+    {
+        "id": "SFA.DAS.Learning.Types.LearningReinstatedEvent",
+        "name": "LearningReinstatedEvent",
+        "description": "Raised when a previously removed learning record is reinstated.",
+        "payload": [
+            {
+                "field": "learningKey",
+                "type": "guid",
+                "required": true
+            },
+            {
+                "field": "apprenticeshipId",
+                "type": "long",
+                "required": true
+            }
+        ]
+    }
+]

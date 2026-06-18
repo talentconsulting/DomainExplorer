@@ -1,0 +1,16 @@
+{
+    "services":[
+        "sfa.das.learning.innerapi",
+        "sfa.das.learning.azureFunction",
+        "apim.sfa.das.learnerData",
+        "sfa.das.funding.apprenticeshipearnings",
+        "sfa.das.funding.apprenticeshipearnings.azureFunction",
+        "das.collection.calendar",
+        "submit.learner.data",
+        "sfa.das.learnerdata.api",
+        "sfa.das.learnerdata.jobs",
+        "SFA.DAS.CommitmentsV2",
+        "coursesApi",
+        "pv2"
+    ]
+}

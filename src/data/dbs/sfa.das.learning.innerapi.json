@@ -1,0 +1,4 @@
+{
+    "name": "Learnings Database",
+    "description": "Db for storing learning information for both apprenticeships and short courses. It is updated and read from Learnings Inner and Azure Function"
+}

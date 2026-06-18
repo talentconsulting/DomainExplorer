@@ -1,0 +1,23 @@
+[
+  {
+    "id": "Fully qualified name",
+    "name": "Class name",
+    "description": "Some description",
+    "payload": [
+      {
+        "field": "field name",
+        "type": "data type (e.g. string, int, object, array)",
+        "required": true,
+        "description": "Pulled from comment or logic if possible, otherwise left blank",
+        "items":{
+          "type": "object",
+          "fields": [
+            {
+              same structure as above, recursively defined for nested objects or arrays of objects
+            }
+          ]
+        }// Only for arrays
+      }
+    ]
+  }
+]

@@ -1,0 +1,8 @@
+{
+    "name": "Approvals",
+    "description": "Handles approvals",
+    "calls":[],
+    "subscribedEvents":[
+        "SFA.DAS.Learning.Types.LearningWithdrawnEvent",
+        "SFA.DAS.Learning.Types.WithdrawalRevertedEvent"]
+}

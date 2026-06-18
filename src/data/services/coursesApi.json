@@ -1,0 +1,6 @@
+{
+    "name": "Courses Api",
+    "description": "Has information about courses such as funding details",
+    "calls":[],
+    "subscribedEvents":[]
+}

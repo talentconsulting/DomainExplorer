@@ -1,0 +1,765 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "SFA.DAS.Funding.ApprenticeshipEarnings.InnerApi",
+    "version": "1.0"
+  },
+  "paths": {
+    "/home": {
+      "get": {
+        "tags": [
+          "Home"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/learning/{learningKey}/learning-support": {
+      "put": {
+        "tags": [
+          "Learning"
+        ],
+        "parameters": [
+          {
+            "name": "learningKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateLearningSupportRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateLearningSupportRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateLearningSupportRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/learning/{learningKey}/english-and-maths": {
+      "put": {
+        "tags": [
+          "Learning"
+        ],
+        "parameters": [
+          {
+            "name": "learningKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateEnglishAndMathsRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateEnglishAndMathsRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateEnglishAndMathsRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/learning/{learningKey}/on-programme": {
+      "put": {
+        "tags": [
+          "Learning"
+        ],
+        "parameters": [
+          {
+            "name": "learningKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateOnProgrammeRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateOnProgrammeRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateOnProgrammeRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/learning/{learningKey}": {
+      "delete": {
+        "tags": [
+          "Learning"
+        ],
+        "parameters": [
+          {
+            "name": "learningKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/{ukprn}/fm36/{collectionYear}/{collectionPeriod}": {
+      "post": {
+        "tags": [
+          "ProviderEarnings"
+        ],
+        "parameters": [
+          {
+            "name": "ukprn",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "collectionYear",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "collectionPeriod",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/shortCourses": {
+      "post": {
+        "tags": [
+          "ShortCourses"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUnapprovedShortCourseLearningRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUnapprovedShortCourseLearningRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUnapprovedShortCourseLearningRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/fm99/{learningKey}/shortCourses": {
+      "get": {
+        "tags": [
+          "ShortCourses"
+        ],
+        "parameters": [
+          {
+            "name": "learningKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "ukprn",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/{learningKey}/shortCourses/{episodeKey}/on-programme": {
+      "put": {
+        "tags": [
+          "ShortCourses"
+        ],
+        "parameters": [
+          {
+            "name": "learningKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "episodeKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateShortCourseOnProgrammeRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateShortCourseOnProgrammeRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateShortCourseOnProgrammeRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/{learningKey}/shortCourses/{episodeKey}": {
+      "get": {
+        "tags": [
+          "ShortCourses"
+        ],
+        "parameters": [
+          {
+            "name": "learningKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "episodeKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "ShortCourses"
+        ],
+        "parameters": [
+          {
+            "name": "learningKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "episodeKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Care": {
+        "type": "object",
+        "properties": {
+          "hasEHCP": {
+            "type": "boolean"
+          },
+          "isCareLeaver": {
+            "type": "boolean"
+          },
+          "careLeaverEmployerConsentGiven": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateUnapprovedShortCourseLearningRequest": {
+        "type": "object",
+        "properties": {
+          "learningKey": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "episodeKey": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "learner": {
+            "$ref": "#/components/schemas/Learner"
+          },
+          "learningSupport": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LearningSupportItem"
+            },
+            "nullable": true
+          },
+          "onProgramme": {
+            "$ref": "#/components/schemas/OnProgramme"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EnglishAndMathsItem": {
+        "type": "object",
+        "properties": {
+          "startDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "endDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "course": {
+            "type": "string",
+            "nullable": true
+          },
+          "learnAimRef": {
+            "type": "string",
+            "nullable": true
+          },
+          "amount": {
+            "type": "number",
+            "format": "double"
+          },
+          "combinedFundingAdjustmentPercentage": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "pauseDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "withdrawalDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "completionDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "periodsInLearning": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PeriodInLearningItem"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Learner": {
+        "type": "object",
+        "properties": {
+          "dateOfBirth": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "uln": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LearningEpisodePrice": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "startDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "endDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "trainingPrice": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "endPointAssessmentPrice": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "totalPrice": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "LearningSupportItem": {
+        "type": "object",
+        "properties": {
+          "startDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "endDate": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Milestone": {
+        "enum": [
+          1,
+          2
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "OnProgramme": {
+        "type": "object",
+        "properties": {
+          "courseCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "ukprn": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "startDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "withdrawalDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "completionDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "expectedEndDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "milestones": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Milestone"
+            },
+            "nullable": true
+          },
+          "totalPrice": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PeriodInLearningItem": {
+        "type": "object",
+        "properties": {
+          "startDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "endDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "originalExpectedEndDate": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateEnglishAndMathsRequest": {
+        "type": "object",
+        "properties": {
+          "englishAndMaths": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EnglishAndMathsItem"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateLearningSupportRequest": {
+        "type": "object",
+        "properties": {
+          "learningSupport": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LearningSupportItem"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateOnProgrammeRequest": {
+        "type": "object",
+        "properties": {
+          "apprenticeshipEpisodeKey": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "completionDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "withdrawalDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "pauseDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "dateOfBirth": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "fundingBandMaximum": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "includesFundingBandMaximumUpdate": {
+            "type": "boolean"
+          },
+          "prices": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LearningEpisodePrice"
+            },
+            "nullable": true
+          },
+          "periodsInLearning": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PeriodInLearningItem"
+            },
+            "nullable": true
+          },
+          "care": {
+            "$ref": "#/components/schemas/Care"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateShortCourseOnProgrammeRequest": {
+        "type": "object",
+        "properties": {
+          "withdrawalDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "milestones": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Milestone"
+            },
+            "nullable": true
+          },
+          "completionDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

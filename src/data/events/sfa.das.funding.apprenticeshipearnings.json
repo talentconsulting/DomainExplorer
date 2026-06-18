@@ -1,0 +1,635 @@
+[
+  {
+    "id": "SFA.DAS.Funding.ApprenticeshipEarnings.Types.EarningsProfileUpdatedEvent",
+    "name": "EarningsProfileUpdatedEvent",
+    "description": "Published when apprenticeship earnings profile content/version changes (including initial profile generation and subsequent updates such as on-programme changes, learning support, maths/english, or learner removal recalculation to zero).",
+    "payload": [
+      {
+        "field": "EarningsProfileId",
+        "type": "guid",
+        "required": true,
+        "description": "Earnings profile identifier"
+      },
+      {
+        "field": "EpisodeKey",
+        "type": "guid",
+        "required": true,
+        "description": "Apprenticeship episode identifier"
+      },
+      {
+        "field": "Version",
+        "type": "guid",
+        "required": true,
+        "description": "Profile version after update"
+      },
+      {
+        "field": "OnProgramTotal",
+        "type": "decimal",
+        "required": true,
+        "description": "Total on-programme earning amount"
+      },
+      {
+        "field": "CompletionPayment",
+        "type": "decimal",
+        "required": true,
+        "description": "Completion payment amount"
+      },
+      {
+        "field": "Instalments",
+        "type": "array",
+        "required": true,
+        "description": "Instalment lines for the profile",
+        "items": {
+          "type": "object",
+          "fields": [
+            {
+              "field": "Key",
+              "type": "guid",
+              "required": true,
+              "description": "Instalment identifier"
+            },
+            {
+              "field": "EpisodePriceKey",
+              "type": "guid",
+              "required": true,
+              "description": "Related episode price key"
+            },
+            {
+              "field": "Type",
+              "type": "string",
+              "required": true,
+              "description": "Instalment type"
+            },
+            {
+              "field": "AcademicYear",
+              "type": "short",
+              "required": true,
+              "description": "Academic year (YYYY format used by system)"
+            },
+            {
+              "field": "DeliveryPeriod",
+              "type": "byte",
+              "required": true,
+              "description": "Funding delivery period"
+            },
+            {
+              "field": "Amount",
+              "type": "decimal",
+              "required": true,
+              "description": "Instalment amount"
+            }
+          ]
+        }
+      },
+      {
+        "field": "AdditionalPayments",
+        "type": "array",
+        "required": true,
+        "description": "Additional incentive/support payments",
+        "items": {
+          "type": "object",
+          "fields": [
+            {
+              "field": "Key",
+              "type": "guid",
+              "required": true,
+              "description": "Additional payment identifier"
+            },
+            {
+              "field": "AdditionalPaymentType",
+              "type": "string",
+              "required": true,
+              "description": "Payment type/category"
+            },
+            {
+              "field": "DueDate",
+              "type": "datetime",
+              "required": true,
+              "description": "Date payment is due"
+            },
+            {
+              "field": "AcademicYear",
+              "type": "short",
+              "required": true,
+              "description": "Academic year"
+            },
+            {
+              "field": "DeliveryPeriod",
+              "type": "byte",
+              "required": true,
+              "description": "Funding delivery period"
+            },
+            {
+              "field": "Amount",
+              "type": "decimal",
+              "required": true,
+              "description": "Payment amount"
+            }
+          ]
+        }
+      },
+      {
+        "field": "EnglishAndMaths",
+        "type": "array",
+        "required": true,
+        "description": "English and maths earnings breakdown",
+        "items": {
+          "type": "object",
+          "fields": [
+            {
+              "field": "EnglishAndMathsKey",
+              "type": "guid",
+              "required": true,
+              "description": "Course earning identifier"
+            },
+            {
+              "field": "StartDate",
+              "type": "datetime",
+              "required": true,
+              "description": "Course start date"
+            },
+            {
+              "field": "EndDate",
+              "type": "datetime",
+              "required": true,
+              "description": "Course end date"
+            },
+            {
+              "field": "Course",
+              "type": "string",
+              "required": true,
+              "description": "Course descriptor"
+            },
+            {
+              "field": "Amount",
+              "type": "decimal",
+              "required": true,
+              "description": "Total amount for course earnings"
+            },
+            {
+              "field": "Instalments",
+              "type": "array",
+              "required": true,
+              "description": "Delivery period instalments for this course",
+              "items": {
+                "type": "object",
+                "fields": [
+                  {
+                    "field": "AcademicYear",
+                    "type": "short",
+                    "required": true,
+                    "description": "Academic year"
+                  },
+                  {
+                    "field": "DeliveryPeriod",
+                    "type": "byte",
+                    "required": true,
+                    "description": "Funding delivery period"
+                  },
+                  {
+                    "field": "Amount",
+                    "type": "decimal",
+                    "required": true,
+                    "description": "Instalment amount"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "field": "InitialGeneration",
+        "type": "bool",
+        "required": true,
+        "description": "True when this is the first generated version"
+      }
+    ]
+  },
+  {
+    "id": "SFA.DAS.Funding.ApprenticeshipEarnings.Types.ShortCourseEarningsProfileUpdatedEvent",
+    "name": "ShortCourseEarningsProfileUpdatedEvent",
+    "description": "Published when short-course earnings profile content/version changes (initial generation and updates).",
+    "payload": [
+      {
+        "field": "EarningsProfileId",
+        "type": "guid",
+        "required": true,
+        "description": "Earnings profile identifier"
+      },
+      {
+        "field": "EpisodeKey",
+        "type": "guid",
+        "required": true,
+        "description": "Short-course episode identifier"
+      },
+      {
+        "field": "Version",
+        "type": "guid",
+        "required": true,
+        "description": "Profile version after update"
+      },
+      {
+        "field": "OnProgramTotal",
+        "type": "decimal",
+        "required": true,
+        "description": "Total on-programme amount"
+      },
+      {
+        "field": "CompletionPayment",
+        "type": "decimal",
+        "required": true,
+        "description": "Completion payment amount"
+      },
+      {
+        "field": "Instalments",
+        "type": "array",
+        "required": true,
+        "description": "Instalment lines",
+        "items": {
+          "type": "object",
+          "fields": [
+            {
+              "field": "Key",
+              "type": "guid",
+              "required": true,
+              "description": "Instalment identifier"
+            },
+            {
+              "field": "EpisodePriceKey",
+              "type": "guid",
+              "required": true,
+              "description": "Mapped to episode key for short-course instalments"
+            },
+            {
+              "field": "Type",
+              "type": "string",
+              "required": true,
+              "description": "Instalment type"
+            },
+            {
+              "field": "AcademicYear",
+              "type": "short",
+              "required": true,
+              "description": "Academic year"
+            },
+            {
+              "field": "DeliveryPeriod",
+              "type": "byte",
+              "required": true,
+              "description": "Funding delivery period"
+            },
+            {
+              "field": "Amount",
+              "type": "decimal",
+              "required": true,
+              "description": "Instalment amount"
+            }
+          ]
+        }
+      },
+      {
+        "field": "InitialGeneration",
+        "type": "bool",
+        "required": true,
+        "description": "True when this is the first generated version"
+      }
+    ]
+  },
+  {
+    "id": "SFA.DAS.Funding.ApprenticeshipEarnings.Types.ApprenticeshipEarningsRecalculatedEvent",
+    "name": "ApprenticeshipEarningsRecalculatedEvent",
+    "description": "Published when apprenticeship earnings are recalculated after non-initial profile updates or learner removal.",
+    "payload": [
+      {
+        "field": "ApprenticeshipKey",
+        "type": "guid",
+        "required": true,
+        "description": "Learning/apprenticeship key"
+      },
+      {
+        "field": "DeliveryPeriods",
+        "type": "array",
+        "required": true,
+        "description": "Flattened delivery-period earnings lines",
+        "items": {
+          "type": "object",
+          "fields": [
+            {
+              "field": "CalendarMonth",
+              "type": "byte",
+              "required": true,
+              "description": "Calendar month"
+            },
+            {
+              "field": "CalenderYear",
+              "type": "short",
+              "required": true,
+              "description": "Calendar year"
+            },
+            {
+              "field": "Period",
+              "type": "byte",
+              "required": true,
+              "description": "Funding delivery period"
+            },
+            {
+              "field": "AcademicYear",
+              "type": "short",
+              "required": true,
+              "description": "Academic year"
+            },
+            {
+              "field": "LearningAmount",
+              "type": "decimal",
+              "required": true,
+              "description": "Amount for this period line"
+            },
+            {
+              "field": "FundingLineType",
+              "type": "string",
+              "required": true,
+              "description": "Funding line descriptor"
+            },
+            {
+              "field": "InstalmentType",
+              "type": "string",
+              "required": true,
+              "description": "Instalment classification"
+            }
+          ]
+        }
+      },
+      {
+        "field": "EarningsProfileId",
+        "type": "guid",
+        "required": true,
+        "description": "Current earnings profile id"
+      },
+      {
+        "field": "StartDate",
+        "type": "datetime",
+        "required": true,
+        "description": "Apprenticeship start date"
+      },
+      {
+        "field": "PlannedEndDate",
+        "type": "datetime",
+        "required": true,
+        "description": "Planned end date"
+      },
+      {
+        "field": "AgeAtStartOfApprenticeship",
+        "type": "int",
+        "required": true,
+        "description": "Learner age at start"
+      }
+    ]
+  },
+  {
+    "id": "SFA.DAS.LearnerData.Events.GrowthAndSkillsPaymentsRecalculatedEvent",
+    "name": "GrowthAndSkillsPaymentsRecalculatedEvent",
+    "description": "Published after short-course earnings updates/removals/reinstatements; wraps the payments recalculation command payload.",
+    "payload": [
+      {
+        "field": "Command",
+        "type": "object",
+        "required": true,
+        "description": "CalculateGrowthAndSkillsPayments command payload.",
+        "items": {
+          "type": "object",
+          "fields": [
+            {
+              "field": "EarningsId",
+              "type": "string",
+              "required": true,
+              "description": "Earning profile version GUID."
+            },
+            {
+              "field": "UKPRN",
+              "type": "integer",
+              "required": true,
+              "description": "Provider UKPRN."
+            },
+            {
+              "field": "Learner",
+              "type": "object",
+              "required": true,
+              "description": "",
+              "items": {
+                "type": "object",
+                "fields": [
+                  {
+                    "field": "LearnerKey",
+                    "type": "integer",
+                    "required": true,
+                    "description": "Learning-domain learner key."
+                  },
+                  {
+                    "field": "ULN",
+                    "type": "integer",
+                    "required": true,
+                    "description": ""
+                  },
+                  {
+                    "field": "Reference",
+                    "type": "string",
+                    "required": true,
+                    "description": "Learner reference from episode."
+                  }
+                ]
+              }
+            },
+            {
+              "field": "Training",
+              "type": "object",
+              "required": true,
+              "description": "",
+              "items": {
+                "type": "object",
+                "fields": [
+                  {
+                    "field": "LearningKey",
+                    "type": "integer",
+                    "required": true,
+                    "description": ""
+                  },
+                  {
+                    "field": "CourseType",
+                    "type": "string",
+                    "required": true,
+                    "description": "Enum; set to ShortCourse."
+                  },
+                  {
+                    "field": "LearningType",
+                    "type": "string",
+                    "required": true,
+                    "description": "Enum parsed from episode learning type."
+                  },
+                  {
+                    "field": "CourseCode",
+                    "type": "string",
+                    "required": true,
+                    "description": "Training code in Learning domain."
+                  },
+                  {
+                    "field": "CourseReference",
+                    "type": "string",
+                    "required": true,
+                    "description": "Also set from training code."
+                  },
+                  {
+                    "field": "AgeAtStartOfTraining",
+                    "type": "integer",
+                    "required": true,
+                    "description": ""
+                  },
+                  {
+                    "field": "StartDate",
+                    "type": "string",
+                    "required": true,
+                    "description": "date-time"
+                  },
+                  {
+                    "field": "PlannedEndDate",
+                    "type": "string",
+                    "required": true,
+                    "description": "date-time"
+                  },
+                  {
+                    "field": "ActualEndDate",
+                    "type": "string",
+                    "required": false,
+                    "description": "date-time; uses withdrawal date if present, else completion date."
+                  },
+                  {
+                    "field": "TrainingStatus",
+                    "type": "string",
+                    "required": true,
+                    "description": "Enum; Withdrawn/Completed/Continuing derived from dates."
+                  }
+                ]
+              }
+            },
+            {
+              "field": "EmployerContribution",
+              "type": "number",
+              "required": true,
+              "description": "Set to 0."
+            },
+            {
+              "field": "Earnings",
+              "type": "array",
+              "required": true,
+              "description": "Grouped by collection year.",
+              "items": {
+                "type": "object",
+                "fields": [
+                  {
+                    "field": "AcademicYear",
+                    "type": "integer",
+                    "required": true,
+                    "description": ""
+                  },
+                  {
+                    "field": "PricePeriods",
+                    "type": "array",
+                    "required": true,
+                    "description": "",
+                    "items": {
+                      "type": "object",
+                      "fields": [
+                        {
+                          "field": "Price",
+                          "type": "number",
+                          "required": true,
+                          "description": "Episode price."
+                        },
+                        {
+                          "field": "StartDate",
+                          "type": "string",
+                          "required": true,
+                          "description": "date-time; adjusted for multi-year earnings."
+                        },
+                        {
+                          "field": "EndDate",
+                          "type": "string",
+                          "required": true,
+                          "description": "date-time; adjusted for multi-year earnings."
+                        },
+                        {
+                          "field": "Periods",
+                          "type": "array",
+                          "required": true,
+                          "description": "Only payable instalments are included.",
+                          "items": {
+                            "type": "object",
+                            "fields": [
+                              {
+                                "field": "EarningType",
+                                "type": "string",
+                                "required": true,
+                                "description": "Enum; mapped from milestone type (Milestone1 or Completion)."
+                              },
+                              {
+                                "field": "DeliveryPeriod",
+                                "type": "integer",
+                                "required": true,
+                                "description": "Collection period."
+                              },
+                              {
+                                "field": "LearningId",
+                                "type": "integer",
+                                "required": true,
+                                "description": "Approvals apprenticeship id."
+                              },
+                              {
+                                "field": "Amount",
+                                "type": "number",
+                                "required": true,
+                                "description": ""
+                              },
+                              {
+                                "field": "Employer",
+                                "type": "object",
+                                "required": true,
+                                "description": "",
+                                "items": {
+                                  "type": "object",
+                                  "fields": [
+                                    {
+                                      "field": "AccountId",
+                                      "type": "integer",
+                                      "required": true,
+                                      "description": "Employer account id."
+                                    },
+                                    {
+                                      "field": "FundingAccountId",
+                                      "type": "integer",
+                                      "required": true,
+                                      "description": "TransferSenderId when present; otherwise EmployerAccountId."
+                                    },
+                                    {
+                                      "field": "EmployerType",
+                                      "type": "string",
+                                      "required": true,
+                                      "description": "Enum parsed from episode employer type (Levy/NonLevy)."
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,6 @@
+{
+    "name": "Submit Learner Data",
+    "description": "Handles academic years information",
+    "calls":["apim.sfa.das.learnerData"],
+    "subscribedEvents":[]
+}

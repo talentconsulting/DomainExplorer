@@ -1,0 +1,31 @@
+flowchart TD
+style LDO fill:#E3F2FD,stroke:#1976D2,stroke-width:2px
+style Earn fill:#E8F5E9,stroke:#388E3C,stroke-width:2px
+
+subgraph LDO["Learner Data Outer"]
+    A[Learner Data Outer]
+end
+
+subgraph Earn["Earnings Inner"]
+    A[Learner Data Outer] --> Create[Create Short Course]
+    A[Learner Data Outer] --> Update[Update Short Course]
+    A[Learner Data Outer] --> Approve[Approve Short Course]
+
+
+    Create --> LsRequested{Is learning support requested?}
+    Update --> LsRequested{Is learning support requested?}
+    Approve --> LsExists{Does learning support instalment exist?}
+    
+    LsRequested --> |No| NoLsp[No Learning Support]
+    LsRequested --> |Yes| GenerateLsp[Generate instalment with type 'LearningSupport' in the ShortCourseInstalment table]
+
+    LsExists --> |No| NotPayable
+    LsExists --> |Yes| IsPayable
+
+
+    GenerateLsp --> IsPayable{Is the course approved and is milestone 1 complete?}
+
+    IsPayable --> |No| NotPayable[Not payable, ensure payable flag false]
+    IsPayable --> |Yes| Payable[Mark instalment as payable, ensure payable flag true]
+
+end

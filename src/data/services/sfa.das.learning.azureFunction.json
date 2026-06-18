@@ -1,0 +1,6 @@
+{
+    "name": "Learning Azure Function",
+    "description": "Inner api",
+    "calls":[],
+    "subscribedEvents":["SFA.DAS.CommitmentsV2.Messages.Events.ApprenticeshipCreatedEvent"]
+}

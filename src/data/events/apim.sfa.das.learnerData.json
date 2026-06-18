@@ -1,0 +1,135 @@
+[
+  {
+    "id": "SFA.DAS.LearnerData.Events.LearnerDataEvent",
+    "name": "LearnerDataEvent",
+    "description": "Published when learner data is created/processed (including short course draft creation in non-reinstatement path).",
+    "payload": [
+      {
+        "field": "ULN",
+        "type": "integer",
+        "required": true,
+        "description": "Unique learner number."
+      },
+      {
+        "field": "UKPRN",
+        "type": "integer",
+        "required": true,
+        "description": "Provider UKPRN."
+      },
+      {
+        "field": "FirstName",
+        "type": "string",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "LastName",
+        "type": "string",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "Email",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "field": "DoB",
+        "type": "string",
+        "required": true,
+        "description": "Date of birth (date-time)."
+      },
+      {
+        "field": "StartDate",
+        "type": "string",
+        "required": true,
+        "description": "Learning start date (date-time)."
+      },
+      {
+        "field": "PlannedEndDate",
+        "type": "string",
+        "required": true,
+        "description": "Planned learning end date (date-time)."
+      },
+      {
+        "field": "PercentageLearningToBeDelivered",
+        "type": "integer",
+        "required": false,
+        "description": "Percentage of learning left/to be delivered."
+      },
+      {
+        "field": "EpaoPrice",
+        "type": "integer",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "TrainingPrice",
+        "type": "integer",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "AgreementId",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "field": "IsFlexiJob",
+        "type": "boolean",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "PlannedOTJTrainingHours",
+        "type": "integer",
+        "required": true,
+        "description": "Planned off-the-job training hours."
+      },
+      {
+        "field": "StandardCode",
+        "type": "integer",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "LarsCode",
+        "type": "string",
+        "required": false,
+        "description": "Course code/LARS code (set for short-course flow)."
+      },
+      {
+        "field": "ConsumerReference",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "field": "CorrelationId",
+        "type": "string",
+        "required": true,
+        "description": "Correlation identifier (GUID)."
+      },
+      {
+        "field": "ReceivedDate",
+        "type": "string",
+        "required": true,
+        "description": "Received/published timestamp (date-time)."
+      },
+      {
+        "field": "AcademicYear",
+        "type": "integer",
+        "required": true,
+        "description": "Academic year."
+      },
+      {
+        "field": "LearningType",
+        "type": "string",
+        "required": true,
+        "description": "Enum serialized as string. Values include Apprenticeship, FoundationApprenticeship, ApprenticeshipUnit."
+      }
+    ]
+  }
+]

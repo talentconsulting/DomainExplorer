@@ -1,0 +1,6 @@
+{
+    "name": "Learner Data Jobs",
+    "description": "Stores information about new learners which gets consumed by approvals",
+    "calls":[],
+    "subscribedEvents":["SFA.DAS.LearnerData.Events.LearnerDataEvent"]
+  }

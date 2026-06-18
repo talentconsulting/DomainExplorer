@@ -1,0 +1,27 @@
+sequenceDiagram
+    title Update ShortCourse
+
+    participant Submit Learner Data
+    participant Learner Data Outer
+    participant Learning Inner Api
+    participant Earnings Inner Api
+
+
+    Submit Learner Data ->> Learner Data Outer: GetShortCourseLearners (Get)
+    Learner Data Outer ->> Submit Learner Data: Ok 200 + Learners
+
+    Submit Learner Data ->> Learner Data Outer: UpdateShortCourseLearning (Put)
+    
+    Learner Data Outer ->> Learning Inner Api: UpdateShortCourse (Put)
+
+    Note over Learning Inner Api: Update learning
+
+    Learning Inner Api ->> Learner Data Outer : Ok 200
+
+    Learner Data Outer ->> Earnings Inner Api: UpdateShortCourseOnProgramme (Put)
+
+    Note over Earnings Inner Api: Update earnings
+
+    Earnings Inner Api ->> Learner Data Outer : Ok 200
+
+    Learner Data Outer ->> Submit Learner Data: Accepted 202

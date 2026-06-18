@@ -1,0 +1,6 @@
+{
+    "name": "Earning Azure Function",
+    "description": "Handles messages related to apprenticeship earnings",
+    "calls":[],
+    "subscribedEvents":["SFA.DAS.Learning.Types.LearningCreatedEvent"]
+}

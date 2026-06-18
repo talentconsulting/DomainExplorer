@@ -1,0 +1,560 @@
+[
+    {
+        "id": "SFA.DAS.Commitments.Events.ApprovedCohortReturnedToProvider",
+        "name": "ApprovedCohortReturnedToProvider",
+        "description": "Raised when an approved cohort is returned to the provider.",
+        "payload": [
+            {
+                "field": "CommitmentId",
+                "type": "long",
+                "required": true,
+                "description": ""
+            },
+            {
+                "field": "ProviderId",
+                "type": "long",
+                "required": true,
+                "description": ""
+            },
+            {
+                "field": "AccountId",
+                "type": "long",
+                "required": true,
+                "description": ""
+            }
+        ]
+    },
+    {
+        "id": "SFA.DAS.Commitments.Events.ApprenticeshipUpdateAccepted",
+        "name": "ApprenticeshipUpdateAccepted",
+        "description": "Raised when an apprenticeship update is accepted.",
+        "payload": [
+            {
+                "field": "AccountId",
+                "type": "long",
+                "required": true,
+                "description": ""
+            },
+            {
+                "field": "ProviderId",
+                "type": "long",
+                "required": true,
+                "description": ""
+            },
+            {
+                "field": "ApprenticeshipId",
+                "type": "long",
+                "required": true,
+                "description": ""
+            }
+        ]
+    },
+    {
+        "id": "SFA.DAS.Commitments.Events.ApprenticeshipUpdateCancelled",
+        "name": "ApprenticeshipUpdateCancelled",
+        "description": "Raised when an apprenticeship update is cancelled.",
+        "payload": [
+            {
+                "field": "AccountId",
+                "type": "long",
+                "required": true,
+                "description": ""
+            },
+            {
+                "field": "ProviderId",
+                "type": "long",
+                "required": true,
+                "description": ""
+            },
+            {
+                "field": "ApprenticeshipId",
+                "type": "long",
+                "required": true,
+                "description": ""
+            }
+        ]
+    },
+    {
+        "id": "SFA.DAS.Commitments.Events.ApprenticeshipUpdateCreated",
+        "name": "ApprenticeshipUpdateCreated",
+        "description": "Raised when an apprenticeship update is created.",
+        "payload": [
+            {
+                "field": "AccountId",
+                "type": "long",
+                "required": true,
+                "description": ""
+            },
+            {
+                "field": "ProviderId",
+                "type": "long",
+                "required": true,
+                "description": ""
+            },
+            {
+                "field": "ApprenticeshipId",
+                "type": "long",
+                "required": true,
+                "description": ""
+            }
+        ]
+    },
+    {
+        "id": "SFA.DAS.Commitments.Events.ApprenticeshipUpdateRejected",
+        "name": "ApprenticeshipUpdateRejected",
+        "description": "Raised when an apprenticeship update is rejected.",
+        "payload": [
+            {
+                "field": "AccountId",
+                "type": "long",
+                "required": true,
+                "description": ""
+            },
+            {
+                "field": "ProviderId",
+                "type": "long",
+                "required": true,
+                "description": ""
+            },
+            {
+                "field": "ApprenticeshipId",
+                "type": "long",
+                "required": true,
+                "description": ""
+            }
+        ]
+    },
+    {
+        "id": "SFA.DAS.Commitments.Events.CohortApprovalByTransferSenderRequested",
+        "name": "CohortApprovalByTransferSenderRequested",
+        "description": "Raised when transfer sender approval is requested for a cohort.",
+        "payload": [
+            {
+                "field": "TransferRequestId",
+                "type": "long",
+                "required": true,
+                "description": ""
+            },
+            {
+                "field": "ReceivingEmployerAccountId",
+                "type": "long",
+                "required": true,
+                "description": ""
+            },
+            {
+                "field": "CommitmentId",
+                "type": "long",
+                "required": true,
+                "description": ""
+            },
+            {
+                "field": "SendingEmployerAccountId",
+                "type": "long",
+                "required": true,
+                "description": ""
+            },
+            {
+                "field": "TransferCost",
+                "type": "decimal",
+                "required": true,
+                "description": ""
+            }
+        ]
+    },
+    {
+        "id": "SFA.DAS.Commitments.Events.CohortApprovalRequestedByProvider",
+        "name": "CohortApprovalRequestedByProvider",
+        "description": "Raised when provider requests cohort approval.",
+        "payload": [
+            {
+                "field": "AccountId",
+                "type": "long",
+                "required": true,
+                "description": ""
+            },
+            {
+                "field": "ProviderId",
+                "type": "long",
+                "required": true,
+                "description": ""
+            },
+            {
+                "field": "CommitmentId",
+                "type": "long",
+                "required": true,
+                "description": ""
+            }
+        ]
+    },
+    {
+        "id": "SFA.DAS.Commitments.Events.CohortApprovedByEmployer",
+        "name": "CohortApprovedByEmployer",
+        "description": "Raised when employer approves a cohort.",
+        "payload": [
+            {
+                "field": "AccountId",
+                "type": "long",
+                "required": true,
+                "description": ""
+            },
+            {
+                "field": "ProviderId",
+                "type": "long",
+                "required": true,
+                "description": ""
+            },
+            {
+                "field": "CommitmentId",
+                "type": "long",
+                "required": true,
+                "description": ""
+            }
+        ]
+    },
+    {
+        "id": "SFA.DAS.Commitments.Events.CohortApprovedByTransferSender",
+        "name": "CohortApprovedByTransferSender",
+        "description": "Raised when a transfer sender approves a cohort.",
+        "payload": [
+            {
+                "field": "TransferRequestId",
+                "type": "long",
+                "required": true,
+                "description": ""
+            },
+            {
+                "field": "ReceivingEmployerAccountId",
+                "type": "long",
+                "required": true,
+                "description": ""
+            },
+            {
+                "field": "CommitmentId",
+                "type": "long",
+                "required": true,
+                "description": ""
+            },
+            {
+                "field": "SendingEmployerAccountId",
+                "type": "long",
+                "required": true,
+                "description": ""
+            },
+            {
+                "field": "UserName",
+                "type": "string",
+                "required": true,
+                "description": ""
+            },
+            {
+                "field": "UserEmail",
+                "type": "string",
+                "required": true,
+                "description": ""
+            }
+        ]
+    },
+    {
+        "id": "SFA.DAS.Commitments.Events.CohortCreated",
+        "name": "CohortCreated",
+        "description": "Raised when a cohort is created.",
+        "payload": [
+            {
+                "field": "AccountId",
+                "type": "long",
+                "required": true,
+                "description": ""
+            },
+            {
+                "field": "ProviderId",
+                "type": "long?",
+                "required": false,
+                "description": ""
+            },
+            {
+                "field": "CommitmentId",
+                "type": "long",
+                "required": true,
+                "description": ""
+            }
+        ]
+    },
+    {
+        "id": "SFA.DAS.Commitments.Events.CohortRejectedByTransferSender",
+        "name": "CohortRejectedByTransferSender",
+        "description": "Raised when a transfer sender rejects a cohort.",
+        "payload": [
+            {
+                "field": "TransferRequestId",
+                "type": "long",
+                "required": true,
+                "description": ""
+            },
+            {
+                "field": "ReceivingEmployerAccountId",
+                "type": "long",
+                "required": true,
+                "description": ""
+            },
+            {
+                "field": "CommitmentId",
+                "type": "long",
+                "required": true,
+                "description": ""
+            },
+            {
+                "field": "SendingEmployerAccountId",
+                "type": "long",
+                "required": true,
+                "description": ""
+            },
+            {
+                "field": "UserName",
+                "type": "string",
+                "required": true,
+                "description": ""
+            },
+            {
+                "field": "UserEmail",
+                "type": "string",
+                "required": true,
+                "description": ""
+            }
+        ]
+    },
+    {
+        "id": "SFA.DAS.Commitments.Events.ProviderCohortApprovalUndoneByEmployerUpdate",
+        "name": "ProviderCohortApprovalUndoneByEmployerUpdate",
+        "description": "Raised when employer undoes approval and provider action is required.",
+        "payload": [
+            {
+                "field": "CommitmentId",
+                "type": "long",
+                "required": true,
+                "description": ""
+            },
+            {
+                "field": "ProviderId",
+                "type": "long",
+                "required": true,
+                "description": ""
+            },
+            {
+                "field": "AccountId",
+                "type": "long",
+                "required": true,
+                "description": ""
+            }
+        ]
+    },
+    {
+        "id": "SFA.DAS.CommitmentsV2.Messages.Events.ApprenticeshipCreatedEvent",
+        "name": "ApprenticeshipCreatedEvent",
+        "description": "Raised when an apprenticeship is created.",
+        "payload": [
+            {
+                "field": "ApprenticeshipId",
+                "type": "long",
+                "required": true,
+                "description": ""
+            },
+            {
+                "field": "StandardUId",
+                "type": "string",
+                "required": true,
+                "description": ""
+            },
+            {
+                "field": "TrainingCourseVersion",
+                "type": "string",
+                "required": true,
+                "description": ""
+            },
+            {
+                "field": "TrainingCourseOption",
+                "type": "string",
+                "required": true,
+                "description": ""
+            },
+            {
+                "field": "AgreedOn",
+                "type": "datetime",
+                "required": true,
+                "description": "Date agreed between Provider and Employer."
+            },
+            {
+                "field": "CreatedOn",
+                "type": "datetime",
+                "required": true,
+                "description": "Either the AgreedOn date or the date the TransferSender approved the request (if involved)."
+            },
+            {
+                "field": "Uln",
+                "type": "string",
+                "required": true,
+                "description": ""
+            },
+            {
+                "field": "ProviderId",
+                "type": "long",
+                "required": true,
+                "description": ""
+            },
+            {
+                "field": "AccountId",
+                "type": "long",
+                "required": true,
+                "description": ""
+            },
+            {
+                "field": "AccountLegalEntityId",
+                "type": "long",
+                "required": true,
+                "description": ""
+            },
+            {
+                "field": "AccountLegalEntityPublicHashedId",
+                "type": "string",
+                "required": true,
+                "description": ""
+            },
+            {
+                "field": "LegalEntityName",
+                "type": "string",
+                "required": true,
+                "description": ""
+            },
+            {
+                "field": "StartDate",
+                "type": "datetime",
+                "required": true,
+                "description": ""
+            },
+            {
+                "field": "EndDate",
+                "type": "datetime",
+                "required": true,
+                "description": ""
+            },
+            {
+                "field": "PriceEpisodes",
+                "type": "array",
+                "required": true,
+                "description": "",
+                "items": {
+                    "type": "object",
+                    "fields": [
+                        {
+                            "field": "FromDate",
+                            "type": "datetime",
+                            "required": true,
+                            "description": ""
+                        },
+                        {
+                            "field": "ToDate",
+                            "type": "datetime",
+                            "required": false,
+                            "description": ""
+                        },
+                        {
+                            "field": "Cost",
+                            "type": "decimal",
+                            "required": true,
+                            "description": ""
+                        },
+                        {
+                            "field": "TrainingPrice",
+                            "type": "decimal",
+                            "required": false,
+                            "description": ""
+                        },
+                        {
+                            "field": "EndPointAssessmentPrice",
+                            "type": "decimal",
+                            "required": false,
+                            "description": ""
+                        }
+                    ]
+                }
+            },
+            {
+                "field": "TrainingType",
+                "type": "enum",
+                "required": true,
+                "description": ""
+            },
+            {
+                "field": "DeliveryModel",
+                "type": "string",
+                "required": true,
+                "description": "Enum serialized as string."
+            },
+            {
+                "field": "TrainingCode",
+                "type": "string",
+                "required": true,
+                "description": ""
+            },
+            {
+                "field": "TransferSenderId",
+                "type": "long",
+                "required": false,
+                "description": ""
+            },
+            {
+                "field": "ApprenticeshipEmployerTypeOnApproval",
+                "type": "enum",
+                "required": false,
+                "description": ""
+            },
+            {
+                "field": "ContinuationOfId",
+                "type": "long",
+                "required": false,
+                "description": ""
+            },
+            {
+                "field": "DateOfBirth",
+                "type": "datetime",
+                "required": true,
+                "description": ""
+            },
+            {
+                "field": "ActualStartDate",
+                "type": "datetime",
+                "required": false,
+                "description": ""
+            },
+            {
+                "field": "FirstName",
+                "type": "string",
+                "required": true,
+                "description": ""
+            },
+            {
+                "field": "LastName",
+                "type": "string",
+                "required": true,
+                "description": ""
+            },
+            {
+                "field": "ApprenticeshipHashedId",
+                "type": "string",
+                "required": true,
+                "description": ""
+            },
+            {
+                "field": "LearnerDataId",
+                "type": "long",
+                "required": false,
+                "description": ""
+            },
+            {
+                "field": "LearningType",
+                "type": "string",
+                "required": true,
+                "description": "Enum serialized as string."
+            }
+        ]
+    }
+]

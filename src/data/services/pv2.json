@@ -1,0 +1,6 @@
+{
+    "name": "PV2",
+    "description": "Payments Version 2",
+    "calls":[],
+    "subscribedEvents":["SFA.DAS.LearnerData.Events.GrowthAndSkillsPaymentsRecalculatedEvent"]
+}
