@@ -1,0 +1,6 @@
+{
+    "name": "Das Payments V2 Databases",
+    "description": "Handles database operations for DAS Payments V2",
+    "calls":[],
+    "subscribedEvents":[]
+}

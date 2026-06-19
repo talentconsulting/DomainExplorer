@@ -12,6 +12,7 @@
         "SFA.DAS.CommitmentsV2",
         "coursesApi",
         "pv2",
-        "das-payments-v2-earningevents"
+        "das-payments-v2-earningevents",
+        "das-payments-v2-databases"
     ]
 }
