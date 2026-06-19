@@ -1,0 +1,6 @@
+{
+    "name": "Das Payments V2 Earning Events",
+    "description": "Handles earning events for DAS Payments V2",
+    "calls":[],
+    "subscribedEvents":[]
+}

@@ -1,0 +1,7 @@
+[
+  {
+    "id": "Table name (must match tableName in dbSchema)",
+    "x": 0,
+    "y": 0
+  }
+]

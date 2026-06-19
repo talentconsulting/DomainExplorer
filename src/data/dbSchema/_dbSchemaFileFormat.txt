@@ -1,0 +1,20 @@
+[
+  {
+    "tableName": "Table name",
+    "columns": [
+      {
+        "columnName": "Column name",
+        "dataType": "SQL data type (e.g. uniqueidentifier, bigint, nvarchar, datetime)",
+        "is_nullable": false,
+        "primaryKey": false
+      }
+    ],
+    "relationships": [
+      {
+        "columnName": "Foreign key column in this table",
+        "targetTable": "Referenced table",
+        "targetColumn": "Referenced column"
+      }
+    ]
+  }
+]

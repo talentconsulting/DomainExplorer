@@ -1,0 +1,4 @@
+{
+  "name": "Database name",
+  "description": "What this database stores and which services read/write it"
+}
