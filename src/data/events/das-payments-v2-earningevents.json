@@ -1,0 +1,858 @@
+[
+  {
+    "id": "SFA.DAS.Payments.EarningEvents.Messages.Events.Act1FunctionalSkillEarningsEvent",
+    "name": "Act1FunctionalSkillEarningsEvent",
+    "description": "",
+    "payload": [
+      {
+        "field": "Earnings",
+        "type": "array",
+        "required": true,
+        "description": "",
+        "items": {
+          "type": "object",
+          "fields": []
+        }
+      },
+      {
+        "field": "StartDate",
+        "type": "DateTime",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "ContractType",
+        "type": "ContractType",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "PriceEpisodes",
+        "type": "array",
+        "required": true,
+        "description": "",
+        "items": {
+          "type": "object",
+          "fields": []
+        }
+      },
+      {
+        "field": "CollectionYear",
+        "type": "short",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "AgeAtStartOfLearning",
+        "type": "int?",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "id": "SFA.DAS.Payments.EarningEvents.Messages.Events.Act1RedundancyFunctionalSkillEarningsEvent",
+    "name": "Act1RedundancyFunctionalSkillEarningsEvent",
+    "description": "",
+    "payload": [
+      {
+        "field": "Earnings",
+        "type": "array",
+        "required": true,
+        "description": "",
+        "items": {
+          "type": "object",
+          "fields": []
+        }
+      },
+      {
+        "field": "StartDate",
+        "type": "DateTime",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "ContractType",
+        "type": "ContractType",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "PriceEpisodes",
+        "type": "array",
+        "required": true,
+        "description": "",
+        "items": {
+          "type": "object",
+          "fields": []
+        }
+      },
+      {
+        "field": "CollectionYear",
+        "type": "short",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "AgeAtStartOfLearning",
+        "type": "int?",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "id": "SFA.DAS.Payments.EarningEvents.Messages.Events.Act2FunctionalSkillEarningsEvent",
+    "name": "Act2FunctionalSkillEarningsEvent",
+    "description": "Earning events for sub aims such as Maths & English",
+    "payload": [
+      {
+        "field": "Earnings",
+        "type": "array",
+        "required": true,
+        "description": "",
+        "items": {
+          "type": "object",
+          "fields": []
+        }
+      },
+      {
+        "field": "StartDate",
+        "type": "DateTime",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "ContractType",
+        "type": "ContractType",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "PriceEpisodes",
+        "type": "array",
+        "required": true,
+        "description": "",
+        "items": {
+          "type": "object",
+          "fields": []
+        }
+      },
+      {
+        "field": "CollectionYear",
+        "type": "short",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "AgeAtStartOfLearning",
+        "type": "int?",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "id": "SFA.DAS.Payments.EarningEvents.Messages.Events.Act2RedundancyFunctionalSkillEarningsEvent",
+    "name": "Act2RedundancyFunctionalSkillEarningsEvent",
+    "description": "",
+    "payload": [
+      {
+        "field": "Earnings",
+        "type": "array",
+        "required": true,
+        "description": "",
+        "items": {
+          "type": "object",
+          "fields": []
+        }
+      },
+      {
+        "field": "StartDate",
+        "type": "DateTime",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "ContractType",
+        "type": "ContractType",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "PriceEpisodes",
+        "type": "array",
+        "required": true,
+        "description": "",
+        "items": {
+          "type": "object",
+          "fields": []
+        }
+      },
+      {
+        "field": "CollectionYear",
+        "type": "short",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "AgeAtStartOfLearning",
+        "type": "int?",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "id": "SFA.DAS.Payments.EarningEvents.Messages.Events.ApprenticeshipContractType1EarningEvent",
+    "name": "ApprenticeshipContractType1EarningEvent",
+    "description": "",
+    "payload": [
+      {
+        "field": "AgreementId",
+        "type": "string",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "IsPayable",
+        "type": "bool",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "SfaContributionPercentage",
+        "type": "decimal",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "StartDate",
+        "type": "DateTime",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "OnProgrammeEarnings",
+        "type": "array",
+        "required": true,
+        "description": "",
+        "items": {
+          "type": "object",
+          "fields": []
+        }
+      },
+      {
+        "field": "IncentiveEarnings",
+        "type": "array",
+        "required": true,
+        "description": "",
+        "items": {
+          "type": "object",
+          "fields": []
+        }
+      },
+      {
+        "field": "PriceEpisodes",
+        "type": "array",
+        "required": true,
+        "description": "",
+        "items": {
+          "type": "object",
+          "fields": []
+        }
+      },
+      {
+        "field": "CollectionYear",
+        "type": "short",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "AgeAtStartOfLearning",
+        "type": "int?",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "id": "SFA.DAS.Payments.EarningEvents.Messages.Events.ApprenticeshipContractType1RedundancyEarningEvent",
+    "name": "ApprenticeshipContractType1RedundancyEarningEvent",
+    "description": "",
+    "payload": [
+      {
+        "field": "AgreementId",
+        "type": "string",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "IsPayable",
+        "type": "bool",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "SfaContributionPercentage",
+        "type": "decimal",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "StartDate",
+        "type": "DateTime",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "OnProgrammeEarnings",
+        "type": "array",
+        "required": true,
+        "description": "",
+        "items": {
+          "type": "object",
+          "fields": []
+        }
+      },
+      {
+        "field": "IncentiveEarnings",
+        "type": "array",
+        "required": true,
+        "description": "",
+        "items": {
+          "type": "object",
+          "fields": []
+        }
+      },
+      {
+        "field": "PriceEpisodes",
+        "type": "array",
+        "required": true,
+        "description": "",
+        "items": {
+          "type": "object",
+          "fields": []
+        }
+      },
+      {
+        "field": "CollectionYear",
+        "type": "short",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "AgeAtStartOfLearning",
+        "type": "int?",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "id": "SFA.DAS.Payments.EarningEvents.Messages.Events.ApprenticeshipContractType2EarningEvent",
+    "name": "ApprenticeshipContractType2EarningEvent",
+    "description": "",
+    "payload": [
+      {
+        "field": "IsPayable",
+        "type": "bool",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "SfaContributionPercentage",
+        "type": "decimal",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "StartDate",
+        "type": "DateTime",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "OnProgrammeEarnings",
+        "type": "array",
+        "required": true,
+        "description": "",
+        "items": {
+          "type": "object",
+          "fields": []
+        }
+      },
+      {
+        "field": "IncentiveEarnings",
+        "type": "array",
+        "required": true,
+        "description": "",
+        "items": {
+          "type": "object",
+          "fields": []
+        }
+      },
+      {
+        "field": "PriceEpisodes",
+        "type": "array",
+        "required": true,
+        "description": "",
+        "items": {
+          "type": "object",
+          "fields": []
+        }
+      },
+      {
+        "field": "CollectionYear",
+        "type": "short",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "AgeAtStartOfLearning",
+        "type": "int?",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "id": "SFA.DAS.Payments.EarningEvents.Messages.Events.ApprenticeshipContractType2RedundancyEarningEvent",
+    "name": "ApprenticeshipContractType2RedundancyEarningEvent",
+    "description": "",
+    "payload": [
+      {
+        "field": "IsPayable",
+        "type": "bool",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "SfaContributionPercentage",
+        "type": "decimal",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "StartDate",
+        "type": "DateTime",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "OnProgrammeEarnings",
+        "type": "array",
+        "required": true,
+        "description": "",
+        "items": {
+          "type": "object",
+          "fields": []
+        }
+      },
+      {
+        "field": "IncentiveEarnings",
+        "type": "array",
+        "required": true,
+        "description": "",
+        "items": {
+          "type": "object",
+          "fields": []
+        }
+      },
+      {
+        "field": "PriceEpisodes",
+        "type": "array",
+        "required": true,
+        "description": "",
+        "items": {
+          "type": "object",
+          "fields": []
+        }
+      },
+      {
+        "field": "CollectionYear",
+        "type": "short",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "AgeAtStartOfLearning",
+        "type": "int?",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "id": "SFA.DAS.Payments.EarningEvents.Messages.Events.ApprenticeshipContractTypeNoneEarningEvent",
+    "name": "ApprenticeshipContractTypeNoneEarningEvent",
+    "description": "",
+    "payload": [
+      {
+        "field": "IsPayable",
+        "type": "bool",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "SfaContributionPercentage",
+        "type": "decimal",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "StartDate",
+        "type": "DateTime",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "OnProgrammeEarnings",
+        "type": "array",
+        "required": true,
+        "description": "",
+        "items": {
+          "type": "object",
+          "fields": []
+        }
+      },
+      {
+        "field": "IncentiveEarnings",
+        "type": "array",
+        "required": true,
+        "description": "",
+        "items": {
+          "type": "object",
+          "fields": []
+        }
+      },
+      {
+        "field": "PriceEpisodes",
+        "type": "array",
+        "required": true,
+        "description": "",
+        "items": {
+          "type": "object",
+          "fields": []
+        }
+      },
+      {
+        "field": "CollectionYear",
+        "type": "short",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "AgeAtStartOfLearning",
+        "type": "int?",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "id": "SFA.DAS.Payments.EarningEvents.Messages.Events.ApprenticeshipIneligibleForFundingEarningEvent",
+    "name": "ApprenticeshipIneligibleForFundingEarningEvent",
+    "description": "",
+    "payload": [
+      {
+        "field": "IsPayable",
+        "type": "bool",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "SfaContributionPercentage",
+        "type": "decimal",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "StartDate",
+        "type": "DateTime",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "OnProgrammeEarnings",
+        "type": "array",
+        "required": true,
+        "description": "",
+        "items": {
+          "type": "object",
+          "fields": []
+        }
+      },
+      {
+        "field": "IncentiveEarnings",
+        "type": "array",
+        "required": true,
+        "description": "",
+        "items": {
+          "type": "object",
+          "fields": []
+        }
+      },
+      {
+        "field": "PriceEpisodes",
+        "type": "array",
+        "required": true,
+        "description": "",
+        "items": {
+          "type": "object",
+          "fields": []
+        }
+      },
+      {
+        "field": "CollectionYear",
+        "type": "short",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "AgeAtStartOfLearning",
+        "type": "int?",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "id": "SFA.DAS.Payments.EarningEvents.Messages.Events.DasEarningsReceivedEvent",
+    "name": "DasEarningsReceivedEvent",
+    "description": "",
+    "payload": [
+      {
+        "field": "EarningsId",
+        "type": "Guid",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "CourseCode",
+        "type": "string",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "CollectionPeriod",
+        "type": "CollectionPeriod",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "ULN",
+        "type": "long",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "UKPRN",
+        "type": "long",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "LearningAimReference",
+        "type": "string",
+        "required": true,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "id": "SFA.DAS.Payments.EarningEvents.Messages.Events.GSLShortCourseEarningsEvent",
+    "name": "GSLShortCourseEarningsEvent",
+    "description": "",
+    "payload": [
+      {
+        "field": "ExternalEarningsId",
+        "type": "Guid",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "Earnings",
+        "type": "array",
+        "required": true,
+        "description": "",
+        "items": {
+          "type": "object",
+          "fields": []
+        }
+      },
+      {
+        "field": "FundingPlatformType",
+        "type": "FundingPlatformType",
+        "required": true,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "id": "SFA.DAS.Payments.EarningEvents.Messages.Events.ReceivedProviderEarningsEvent",
+    "name": "ReceivedProviderEarningsEvent",
+    "description": "",
+    "payload": [
+      {
+        "field": "JobId",
+        "type": "long",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "EventTime",
+        "type": "DateTimeOffset",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "Ukprn",
+        "type": "long",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "IlrSubmissionDateTime",
+        "type": "DateTime",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "CollectionPeriod",
+        "type": "CollectionPeriod",
+        "required": true,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "id": "SFA.DAS.Payments.EarningEvents.Messages.Events.SubmissionEvent",
+    "name": "SubmissionEvent",
+    "description": "",
+    "payload": [
+      {
+        "field": "JobId",
+        "type": "long",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "EventTime",
+        "type": "DateTimeOffset",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "Ukprn",
+        "type": "long",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "IlrSubmissionDateTime",
+        "type": "DateTime",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "CollectionPeriod",
+        "type": "byte",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "AcademicYear",
+        "type": "short",
+        "required": true,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "id": "SFA.DAS.Payments.EarningEvents.Messages.Events.SubmissionFailedEvent",
+    "name": "SubmissionFailedEvent",
+    "description": "",
+    "payload": [
+      {
+        "field": "JobId",
+        "type": "long",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "EventTime",
+        "type": "DateTimeOffset",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "Ukprn",
+        "type": "long",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "IlrSubmissionDateTime",
+        "type": "DateTime",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "CollectionPeriod",
+        "type": "byte",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "AcademicYear",
+        "type": "short",
+        "required": true,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "id": "SFA.DAS.Payments.EarningEvents.Messages.Events.SubmissionSucceededEvent",
+    "name": "SubmissionSucceededEvent",
+    "description": "",
+    "payload": [
+      {
+        "field": "JobId",
+        "type": "long",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "EventTime",
+        "type": "DateTimeOffset",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "Ukprn",
+        "type": "long",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "IlrSubmissionDateTime",
+        "type": "DateTime",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "CollectionPeriod",
+        "type": "byte",
+        "required": true,
+        "description": ""
+      },
+      {
+        "field": "AcademicYear",
+        "type": "short",
+        "required": true,
+        "description": ""
+      }
+    ]
+  }
+]
