@@ -1,4 +1,4 @@
 {
     "name": "PV2 Databases",
-    "description": "Dbs for storing PV2 data. It is updated and read from PV2 Inner and Azure Function",
+    "description": "Dbs for storing PV2 data. It is updated and read from PV2 Inner and Azure Function"
 }
