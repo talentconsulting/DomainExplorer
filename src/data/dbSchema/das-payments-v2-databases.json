@@ -1,0 +1,721 @@
+[
+  {
+    "tableName": "Payments2.Job",
+    "columns": [
+      {"columnName": "JobId", "dataType": "bigint", "is_nullable": false, "primaryKey": true},
+      {"columnName": "JobType", "dataType": "tinyint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "StartTime", "dataType": "datetimeoffset", "is_nullable": false, "primaryKey": false},
+      {"columnName": "EndTime", "dataType": "datetimeoffset", "is_nullable": true, "primaryKey": false},
+      {"columnName": "Status", "dataType": "tinyint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "CreationDate", "dataType": "datetimeoffset", "is_nullable": false, "primaryKey": false},
+      {"columnName": "DCJobId", "dataType": "bigint", "is_nullable": true, "primaryKey": false},
+      {"columnName": "Ukprn", "dataType": "bigint", "is_nullable": true, "primaryKey": false},
+      {"columnName": "IlrSubmissionTime", "dataType": "datetime", "is_nullable": true, "primaryKey": false},
+      {"columnName": "LearnerCount", "dataType": "int", "is_nullable": true, "primaryKey": false},
+      {"columnName": "AcademicYear", "dataType": "smallint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "CollectionPeriod", "dataType": "tinyint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "DataLocksCompletionTime", "dataType": "datetimeoffset", "is_nullable": true, "primaryKey": false},
+      {"columnName": "DCJobSucceeded", "dataType": "bit", "is_nullable": true, "primaryKey": false},
+      {"columnName": "DCJobEndTime", "dataType": "datetimeoffset", "is_nullable": true, "primaryKey": false}
+    ],
+    "relationships": [
+      {"columnName": "JobType", "targetTable": "Payments2.JobType", "targetColumn": "Id"},
+      {"columnName": "Status", "targetTable": "Payments2.JobStatus", "targetColumn": "Id"}
+    ]
+  },
+  {
+    "tableName": "Payments2.JobType",
+    "columns": [
+      {"columnName": "Id", "dataType": "tinyint", "is_nullable": false, "primaryKey": true},
+      {"columnName": "Description", "dataType": "varchar(255)", "is_nullable": false, "primaryKey": false}
+    ],
+    "relationships": []
+  },
+  {
+    "tableName": "Payments2.JobStatus",
+    "columns": [
+      {"columnName": "Id", "dataType": "tinyint", "is_nullable": false, "primaryKey": true},
+      {"columnName": "Description", "dataType": "varchar(255)", "is_nullable": false, "primaryKey": false}
+    ],
+    "relationships": []
+  },
+  {
+    "tableName": "Payments2.JobEvent",
+    "columns": [
+      {"columnName": "JobEventId", "dataType": "bigint", "is_nullable": false, "primaryKey": true},
+      {"columnName": "JobId", "dataType": "bigint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "EventId", "dataType": "uniqueidentifier", "is_nullable": false, "primaryKey": false},
+      {"columnName": "ParentEventId", "dataType": "uniqueidentifier", "is_nullable": true, "primaryKey": false},
+      {"columnName": "Status", "dataType": "tinyint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "EventType", "dataType": "nvarchar(255)", "is_nullable": true, "primaryKey": false},
+      {"columnName": "SubmittedTime", "dataType": "datetimeoffset", "is_nullable": false, "primaryKey": false},
+      {"columnName": "CompletedTime", "dataType": "datetimeoffset", "is_nullable": true, "primaryKey": false}
+    ],
+    "relationships": [
+      {"columnName": "JobId", "targetTable": "Payments2.Job", "targetColumn": "JobId"},
+      {"columnName": "Status", "targetTable": "Payments2.JobEventStatus", "targetColumn": "Id"}
+    ]
+  },
+  {
+    "tableName": "Payments2.JobEventStatus",
+    "columns": [
+      {"columnName": "Id", "dataType": "tinyint", "is_nullable": false, "primaryKey": true},
+      {"columnName": "Description", "dataType": "varchar(255)", "is_nullable": false, "primaryKey": false}
+    ],
+    "relationships": []
+  },
+  {
+    "tableName": "Payments2.JobProviderEarnings",
+    "columns": [
+      {"columnName": "JobId", "dataType": "bigint", "is_nullable": false, "primaryKey": true},
+      {"columnName": "DCJobId", "dataType": "bigint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "Ukprn", "dataType": "bigint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "IlrSubmissionTime", "dataType": "datetime2", "is_nullable": false, "primaryKey": false},
+      {"columnName": "CollectionYear", "dataType": "varchar(4)", "is_nullable": false, "primaryKey": false},
+      {"columnName": "CollectionPeriod", "dataType": "tinyint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "AcademicYear", "dataType": "smallint", "is_nullable": false, "primaryKey": false}
+    ],
+    "relationships": [
+      {"columnName": "JobId", "targetTable": "Payments2.Job", "targetColumn": "JobId"}
+    ]
+  },
+  {
+    "tableName": "Payments2.ApprenticeshipStatus",
+    "columns": [
+      {"columnName": "Id", "dataType": "tinyint", "is_nullable": false, "primaryKey": true},
+      {"columnName": "Description", "dataType": "varchar(100)", "is_nullable": false, "primaryKey": false}
+    ],
+    "relationships": []
+  },
+  {
+    "tableName": "Payments2.Apprenticeship",
+    "columns": [
+      {"columnName": "Id", "dataType": "bigint", "is_nullable": false, "primaryKey": true},
+      {"columnName": "AccountId", "dataType": "bigint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "AgreementId", "dataType": "char(6)", "is_nullable": true, "primaryKey": false},
+      {"columnName": "AgreedOnDate", "dataType": "date", "is_nullable": false, "primaryKey": false},
+      {"columnName": "Uln", "dataType": "bigint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "Ukprn", "dataType": "bigint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "EstimatedStartDate", "dataType": "date", "is_nullable": true, "primaryKey": false},
+      {"columnName": "ApprenticeshipContractType", "dataType": "tinyint", "is_nullable": true, "primaryKey": false},
+      {"columnName": "ApprenticeshipVersion", "dataType": "int", "is_nullable": true, "primaryKey": false},
+      {"columnName": "TransferSenderId", "dataType": "bigint", "is_nullable": true, "primaryKey": false},
+      {"columnName": "LegalEntityName", "dataType": "nvarchar(500)", "is_nullable": true, "primaryKey": false},
+      {"columnName": "ProviderName", "dataType": "nvarchar(500)", "is_nullable": true, "primaryKey": false},
+      {"columnName": "Status", "dataType": "tinyint", "is_nullable": false, "primaryKey": false}
+    ],
+    "relationships": [
+      {"columnName": "Status", "targetTable": "Payments2.ApprenticeshipStatus", "targetColumn": "Id"}
+    ]
+  },
+  {
+    "tableName": "Payments2.ApprenticeshipDuplicate",
+    "columns": [
+      {"columnName": "Id", "dataType": "bigint", "is_nullable": false, "primaryKey": true},
+      {"columnName": "ApprenticeshipId", "dataType": "bigint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "Ukprn", "dataType": "bigint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "Uln", "dataType": "bigint", "is_nullable": false, "primaryKey": false}
+    ],
+    "relationships": [
+      {"columnName": "ApprenticeshipId", "targetTable": "Payments2.Apprenticeship", "targetColumn": "Id"}
+    ]
+  },
+  {
+    "tableName": "Payments2.ApprenticeshipPause",
+    "columns": [
+      {"columnName": "Id", "dataType": "bigint", "is_nullable": false, "primaryKey": true},
+      {"columnName": "ApprenticeshipId", "dataType": "bigint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "PauseDate", "dataType": "date", "is_nullable": false, "primaryKey": false},
+      {"columnName": "ResumeDate", "dataType": "date", "is_nullable": true, "primaryKey": false}
+    ],
+    "relationships": [
+      {"columnName": "ApprenticeshipId", "targetTable": "Payments2.Apprenticeship", "targetColumn": "Id"}
+    ]
+  },
+  {
+    "tableName": "Payments2.ApprenticeshipPriceEpisode",
+    "columns": [
+      {"columnName": "Id", "dataType": "bigint", "is_nullable": false, "primaryKey": true},
+      {"columnName": "ApprenticeshipId", "dataType": "bigint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "StartDate", "dataType": "date", "is_nullable": false, "primaryKey": false},
+      {"columnName": "EndDate", "dataType": "date", "is_nullable": true, "primaryKey": false},
+      {"columnName": "Cost", "dataType": "decimal(15,5)", "is_nullable": false, "primaryKey": false},
+      {"columnName": "Removed", "dataType": "bit", "is_nullable": false, "primaryKey": false},
+      {"columnName": "ResidencyStatus", "dataType": "tinyint", "is_nullable": true, "primaryKey": false},
+      {"columnName": "FundingBandMaximum", "dataType": "decimal(15,5)", "is_nullable": true, "primaryKey": false}
+    ],
+    "relationships": [
+      {"columnName": "ApprenticeshipId", "targetTable": "Payments2.Apprenticeship", "targetColumn": "Id"}
+    ]
+  },
+  {
+    "tableName": "Payments2.CollectionPeriodStatus",
+    "columns": [
+      {"columnName": "Id", "dataType": "tinyint", "is_nullable": false, "primaryKey": true},
+      {"columnName": "Description", "dataType": "varchar(255)", "is_nullable": false, "primaryKey": false}
+    ],
+    "relationships": []
+  },
+  {
+    "tableName": "Payments2.CollectionPeriod",
+    "columns": [
+      {"columnName": "Id", "dataType": "bigint", "is_nullable": false, "primaryKey": true},
+      {"columnName": "AcademicYear", "dataType": "smallint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "Period", "dataType": "tinyint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "ReferenceDataValidationDate", "dataType": "datetime2", "is_nullable": true, "primaryKey": false},
+      {"columnName": "CompletionDate", "dataType": "datetime2", "is_nullable": true, "primaryKey": false},
+      {"columnName": "PeriodEndStartDate", "dataType": "datetime2", "is_nullable": true, "primaryKey": false},
+      {"columnName": "PeriodEndEndDate", "dataType": "datetime2", "is_nullable": true, "primaryKey": false},
+      {"columnName": "Status", "dataType": "tinyint", "is_nullable": false, "primaryKey": false}
+    ],
+    "relationships": [
+      {"columnName": "Status", "targetTable": "Payments2.CollectionPeriodStatus", "targetColumn": "Id"}
+    ]
+  },
+  {
+    "tableName": "Payments2.CourseType",
+    "columns": [
+      {"columnName": "Id", "dataType": "tinyint", "is_nullable": false, "primaryKey": true},
+      {"columnName": "Description", "dataType": "varchar(255)", "is_nullable": false, "primaryKey": false}
+    ],
+    "relationships": []
+  },
+  {
+    "tableName": "Payments2.CurrentPriceEpisode",
+    "columns": [
+      {"columnName": "Id", "dataType": "bigint", "is_nullable": false, "primaryKey": true},
+      {"columnName": "PriceEpisodeIdentifier", "dataType": "nvarchar(100)", "is_nullable": false, "primaryKey": false},
+      {"columnName": "AgreedPrice", "dataType": "decimal(15,5)", "is_nullable": false, "primaryKey": false},
+      {"columnName": "Ukprn", "dataType": "bigint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "Uln", "dataType": "bigint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "FrameworkCode", "dataType": "int", "is_nullable": false, "primaryKey": false},
+      {"columnName": "PathwayCode", "dataType": "int", "is_nullable": false, "primaryKey": false},
+      {"columnName": "ProgrammeType", "dataType": "int", "is_nullable": false, "primaryKey": false},
+      {"columnName": "StandardCode", "dataType": "int", "is_nullable": false, "primaryKey": false}
+    ],
+    "relationships": []
+  },
+  {
+    "tableName": "Payments2.DataLockEvent",
+    "columns": [
+      {"columnName": "Id", "dataType": "bigint", "is_nullable": false, "primaryKey": true},
+      {"columnName": "EventId", "dataType": "uniqueidentifier", "is_nullable": false, "primaryKey": false},
+      {"columnName": "EarningEventId", "dataType": "uniqueidentifier", "is_nullable": false, "primaryKey": false},
+      {"columnName": "Ukprn", "dataType": "bigint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "ContractType", "dataType": "tinyint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "CollectionPeriod", "dataType": "tinyint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "CollectionYear", "dataType": "smallint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "IlrSubmissionDateTime", "dataType": "datetimeoffset", "is_nullable": false, "primaryKey": false},
+      {"columnName": "LearnRefNumber", "dataType": "nvarchar(12)", "is_nullable": false, "primaryKey": false},
+      {"columnName": "AimSeqNumber", "dataType": "int", "is_nullable": false, "primaryKey": false},
+      {"columnName": "PriceEpisodeIdentifier", "dataType": "nvarchar(50)", "is_nullable": true, "primaryKey": false}
+    ],
+    "relationships": []
+  },
+  {
+    "tableName": "Payments2.DataLockEventNonPayablePeriod",
+    "columns": [
+      {"columnName": "Id", "dataType": "bigint", "is_nullable": false, "primaryKey": true},
+      {"columnName": "DataLockEventId", "dataType": "uniqueidentifier", "is_nullable": false, "primaryKey": false},
+      {"columnName": "DataLockEventNonPayablePeriodId", "dataType": "uniqueidentifier", "is_nullable": false, "primaryKey": false},
+      {"columnName": "PriceEpisodeIdentifier", "dataType": "nvarchar(50)", "is_nullable": true, "primaryKey": false},
+      {"columnName": "TransactionType", "dataType": "tinyint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "DeliveryPeriod", "dataType": "tinyint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "Amount", "dataType": "decimal(15,5)", "is_nullable": false, "primaryKey": false}
+    ],
+    "relationships": [
+      {"columnName": "DataLockEventId", "targetTable": "Payments2.DataLockEvent", "targetColumn": "EventId"}
+    ]
+  },
+  {
+    "tableName": "Payments2.DataLockEventNonPayablePeriodFailures",
+    "columns": [
+      {"columnName": "Id", "dataType": "bigint", "is_nullable": false, "primaryKey": true},
+      {"columnName": "DataLockEventNonPayablePeriodId", "dataType": "uniqueidentifier", "is_nullable": false, "primaryKey": false},
+      {"columnName": "DataLockFailureId", "dataType": "tinyint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "CreationDate", "dataType": "datetimeoffset", "is_nullable": false, "primaryKey": false},
+      {"columnName": "ApprenticeshipId", "dataType": "bigint", "is_nullable": true, "primaryKey": false}
+    ],
+    "relationships": [
+      {"columnName": "DataLockEventNonPayablePeriodId", "targetTable": "Payments2.DataLockEventNonPayablePeriod", "targetColumn": "DataLockEventNonPayablePeriodId"}
+    ]
+  },
+  {
+    "tableName": "Payments2.DataLockEventPayablePeriod",
+    "columns": [
+      {"columnName": "Id", "dataType": "bigint", "is_nullable": false, "primaryKey": true},
+      {"columnName": "DataLockEventId", "dataType": "uniqueidentifier", "is_nullable": false, "primaryKey": false},
+      {"columnName": "PriceEpisodeIdentifier", "dataType": "nvarchar(50)", "is_nullable": true, "primaryKey": false},
+      {"columnName": "TransactionType", "dataType": "tinyint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "DeliveryPeriod", "dataType": "tinyint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "Amount", "dataType": "decimal(15,5)", "is_nullable": false, "primaryKey": false}
+    ],
+    "relationships": [
+      {"columnName": "DataLockEventId", "targetTable": "Payments2.DataLockEvent", "targetColumn": "EventId"}
+    ]
+  },
+  {
+    "tableName": "Payments2.DataLockEventPriceEpisode",
+    "columns": [
+      {"columnName": "Id", "dataType": "bigint", "is_nullable": false, "primaryKey": true},
+      {"columnName": "DataLockEventId", "dataType": "uniqueidentifier", "is_nullable": false, "primaryKey": false},
+      {"columnName": "PriceEpisodeIdentifier", "dataType": "nvarchar(50)", "is_nullable": false, "primaryKey": false},
+      {"columnName": "SfaContributionPercentage", "dataType": "decimal(15,5)", "is_nullable": false, "primaryKey": false},
+      {"columnName": "TotalNegotiatedPrice1", "dataType": "decimal(15,5)", "is_nullable": false, "primaryKey": false},
+      {"columnName": "TotalNegotiatedPrice2", "dataType": "decimal(15,5)", "is_nullable": false, "primaryKey": false},
+      {"columnName": "StartDate", "dataType": "date", "is_nullable": false, "primaryKey": false},
+      {"columnName": "EndDate", "dataType": "date", "is_nullable": true, "primaryKey": false}
+    ],
+    "relationships": [
+      {"columnName": "DataLockEventId", "targetTable": "Payments2.DataLockEvent", "targetColumn": "EventId"}
+    ]
+  },
+  {
+    "tableName": "Payments2.DataLockFailure",
+    "columns": [
+      {"columnName": "Id", "dataType": "bigint", "is_nullable": false, "primaryKey": true},
+      {"columnName": "DataLockEventId", "dataType": "uniqueidentifier", "is_nullable": true, "primaryKey": false},
+      {"columnName": "EarningEventId", "dataType": "uniqueidentifier", "is_nullable": false, "primaryKey": false},
+      {"columnName": "Ukprn", "dataType": "bigint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "LearnerUln", "dataType": "bigint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "PriceEpisodeIdentifier", "dataType": "nvarchar(50)", "is_nullable": true, "primaryKey": false},
+      {"columnName": "ApprenticeshipId", "dataType": "bigint", "is_nullable": true, "primaryKey": false},
+      {"columnName": "RequiredPriceEpisodeIdentifier", "dataType": "nvarchar(50)", "is_nullable": true, "primaryKey": false},
+      {"columnName": "IlrStartDate", "dataType": "date", "is_nullable": true, "primaryKey": false},
+      {"columnName": "IlrTrainingPrice", "dataType": "decimal(15,5)", "is_nullable": true, "primaryKey": false},
+      {"columnName": "IlrEndpointAssessorPrice", "dataType": "decimal(15,5)", "is_nullable": true, "primaryKey": false},
+      {"columnName": "EventTime", "dataType": "datetimeoffset", "is_nullable": true, "primaryKey": false}
+    ],
+    "relationships": []
+  },
+  {
+    "tableName": "Payments2.EarningEvent",
+    "columns": [
+      {"columnName": "Id", "dataType": "bigint", "is_nullable": false, "primaryKey": true},
+      {"columnName": "EventId", "dataType": "uniqueidentifier", "is_nullable": false, "primaryKey": false},
+      {"columnName": "Ukprn", "dataType": "bigint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "ContractType", "dataType": "tinyint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "CollectionPeriod", "dataType": "tinyint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "CollectionYear", "dataType": "smallint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "LearnerReferenceNumber", "dataType": "nvarchar(12)", "is_nullable": false, "primaryKey": false},
+      {"columnName": "LearningAimReference", "dataType": "nvarchar(8)", "is_nullable": true, "primaryKey": false},
+      {"columnName": "LearningAimProgrammeType", "dataType": "int", "is_nullable": false, "primaryKey": false},
+      {"columnName": "LearningAimStandardCode", "dataType": "int", "is_nullable": false, "primaryKey": false},
+      {"columnName": "LearningAimFrameworkCode", "dataType": "int", "is_nullable": false, "primaryKey": false},
+      {"columnName": "LearningAimPathwayCode", "dataType": "int", "is_nullable": false, "primaryKey": false},
+      {"columnName": "LearningAimFundingLineType", "dataType": "nvarchar(100)", "is_nullable": true, "primaryKey": false},
+      {"columnName": "IlrSubmissionDateTime", "dataType": "datetimeoffset", "is_nullable": false, "primaryKey": false},
+      {"columnName": "JobId", "dataType": "bigint", "is_nullable": true, "primaryKey": false}
+    ],
+    "relationships": [
+      {"columnName": "JobId", "targetTable": "Payments2.Job", "targetColumn": "JobId"}
+    ]
+  },
+  {
+    "tableName": "Payments2.EarningEventPeriod",
+    "columns": [
+      {"columnName": "Id", "dataType": "bigint", "is_nullable": false, "primaryKey": true},
+      {"columnName": "EarningEventId", "dataType": "uniqueidentifier", "is_nullable": false, "primaryKey": false},
+      {"columnName": "PriceEpisodeIdentifier", "dataType": "nvarchar(50)", "is_nullable": true, "primaryKey": false},
+      {"columnName": "TransactionType", "dataType": "tinyint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "DeliveryPeriod", "dataType": "tinyint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "Amount", "dataType": "decimal(15,5)", "is_nullable": false, "primaryKey": false}
+    ],
+    "relationships": [
+      {"columnName": "EarningEventId", "targetTable": "Payments2.EarningEvent", "targetColumn": "EventId"}
+    ]
+  },
+  {
+    "tableName": "Payments2.EarningEventPriceEpisode",
+    "columns": [
+      {"columnName": "Id", "dataType": "bigint", "is_nullable": false, "primaryKey": true},
+      {"columnName": "EarningEventId", "dataType": "uniqueidentifier", "is_nullable": false, "primaryKey": false},
+      {"columnName": "PriceEpisodeIdentifier", "dataType": "nvarchar(50)", "is_nullable": false, "primaryKey": false},
+      {"columnName": "SfaContributionPercentage", "dataType": "decimal(15,5)", "is_nullable": false, "primaryKey": false},
+      {"columnName": "TotalNegotiatedPrice1", "dataType": "decimal(15,5)", "is_nullable": false, "primaryKey": false},
+      {"columnName": "TotalNegotiatedPrice2", "dataType": "decimal(15,5)", "is_nullable": false, "primaryKey": false},
+      {"columnName": "StartDate", "dataType": "date", "is_nullable": false, "primaryKey": false},
+      {"columnName": "EndDate", "dataType": "date", "is_nullable": true, "primaryKey": false}
+    ],
+    "relationships": [
+      {"columnName": "EarningEventId", "targetTable": "Payments2.EarningEvent", "targetColumn": "EventId"}
+    ]
+  },
+  {
+    "tableName": "Payments2.EmployerProviderPriority",
+    "columns": [
+      {"columnName": "Id", "dataType": "bigint", "is_nullable": false, "primaryKey": true},
+      {"columnName": "EmployerAccountId", "dataType": "bigint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "Ukprn", "dataType": "bigint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "Order", "dataType": "int", "is_nullable": false, "primaryKey": false}
+    ],
+    "relationships": []
+  },
+  {
+    "tableName": "Payments2.FundingPlatformType",
+    "columns": [
+      {"columnName": "Id", "dataType": "int", "is_nullable": false, "primaryKey": true},
+      {"columnName": "Description", "dataType": "varchar(255)", "is_nullable": false, "primaryKey": false}
+    ],
+    "relationships": []
+  },
+  {
+    "tableName": "Payments2.FundingSourceEvent",
+    "columns": [
+      {"columnName": "Id", "dataType": "bigint", "is_nullable": false, "primaryKey": true},
+      {"columnName": "EventId", "dataType": "uniqueidentifier", "is_nullable": false, "primaryKey": false},
+      {"columnName": "EarningEventId", "dataType": "uniqueidentifier", "is_nullable": false, "primaryKey": false},
+      {"columnName": "RequiredPaymentEventId", "dataType": "uniqueidentifier", "is_nullable": false, "primaryKey": false},
+      {"columnName": "ClawbackSourcePaymentEventId", "dataType": "uniqueidentifier", "is_nullable": true, "primaryKey": false},
+      {"columnName": "CollectionPeriod", "dataType": "tinyint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "CollectionYear", "dataType": "smallint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "DeliveryPeriod", "dataType": "tinyint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "AmountDue", "dataType": "decimal(15,5)", "is_nullable": false, "primaryKey": false},
+      {"columnName": "SfaContributionPercentage", "dataType": "decimal(15,5)", "is_nullable": false, "primaryKey": false},
+      {"columnName": "FundingSource", "dataType": "tinyint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "TransactionType", "dataType": "tinyint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "ApprenticeshipId", "dataType": "bigint", "is_nullable": true, "primaryKey": false},
+      {"columnName": "ApprenticeshipVersion", "dataType": "int", "is_nullable": true, "primaryKey": false},
+      {"columnName": "AccountId", "dataType": "bigint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "TransferSenderAccountId", "dataType": "bigint", "is_nullable": true, "primaryKey": false},
+      {"columnName": "Ukprn", "dataType": "bigint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "LearnRefNumber", "dataType": "nvarchar(12)", "is_nullable": false, "primaryKey": false},
+      {"columnName": "PriceEpisodeIdentifier", "dataType": "nvarchar(50)", "is_nullable": false, "primaryKey": false},
+      {"columnName": "FundingPlatformType", "dataType": "int", "is_nullable": false, "primaryKey": false}
+    ],
+    "relationships": [
+      {"columnName": "EarningEventId", "targetTable": "Payments2.EarningEvent", "targetColumn": "EventId"},
+      {"columnName": "RequiredPaymentEventId", "targetTable": "Payments2.RequiredPaymentEvent", "targetColumn": "EventId"},
+      {"columnName": "FundingPlatformType", "targetTable": "Payments2.FundingPlatformType", "targetColumn": "Id"}
+    ]
+  },
+  {
+    "tableName": "Payments2.FundingSourceLevyTransaction",
+    "columns": [
+      {"columnName": "Id", "dataType": "bigint", "is_nullable": false, "primaryKey": true},
+      {"columnName": "Ukprn", "dataType": "bigint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "CollectionPeriod", "dataType": "tinyint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "AcademicYear", "dataType": "smallint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "DeliveryPeriod", "dataType": "tinyint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "TransactionType", "dataType": "tinyint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "Amount", "dataType": "decimal(15,5)", "is_nullable": false, "primaryKey": false},
+      {"columnName": "EarningEventId", "dataType": "uniqueidentifier", "is_nullable": false, "primaryKey": false},
+      {"columnName": "PriceEpisodeIdentifier", "dataType": "nvarchar(50)", "is_nullable": false, "primaryKey": false},
+      {"columnName": "ApprenticeshipId", "dataType": "bigint", "is_nullable": true, "primaryKey": false},
+      {"columnName": "ApprenticeshipVersion", "dataType": "int", "is_nullable": true, "primaryKey": false},
+      {"columnName": "AccountId", "dataType": "bigint", "is_nullable": false, "primaryKey": false}
+    ],
+    "relationships": []
+  },
+  {
+    "tableName": "Payments2.GrowthAndSkillsEarning",
+    "columns": [
+      {"columnName": "Id", "dataType": "bigint", "is_nullable": false, "primaryKey": true},
+      {"columnName": "EarningsId", "dataType": "uniqueidentifier", "is_nullable": false, "primaryKey": false},
+      {"columnName": "UKPRN", "dataType": "bigint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "LearnerKey", "dataType": "uniqueidentifier", "is_nullable": false, "primaryKey": false},
+      {"columnName": "LearnerUln", "dataType": "bigint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "DeliveryPeriod", "dataType": "tinyint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "TransactionType", "dataType": "int", "is_nullable": false, "primaryKey": false},
+      {"columnName": "Amount", "dataType": "decimal(15,5)", "is_nullable": false, "primaryKey": false}
+    ],
+    "relationships": []
+  },
+  {
+    "tableName": "Payments2.GrowthAndSkillsEarningPricePeriod",
+    "columns": [
+      {"columnName": "Id", "dataType": "bigint", "is_nullable": false, "primaryKey": true},
+      {"columnName": "GrowthAndSkillsEarningsId", "dataType": "uniqueidentifier", "is_nullable": false, "primaryKey": false},
+      {"columnName": "Price", "dataType": "decimal(15,5)", "is_nullable": false, "primaryKey": false},
+      {"columnName": "StartDate", "dataType": "datetime2", "is_nullable": false, "primaryKey": false},
+      {"columnName": "EndDate", "dataType": "datetime2", "is_nullable": true, "primaryKey": false},
+      {"columnName": "FundingLineType", "dataType": "nvarchar(100)", "is_nullable": true, "primaryKey": false}
+    ],
+    "relationships": []
+  },
+  {
+    "tableName": "Payments2.LearningType",
+    "columns": [
+      {"columnName": "Id", "dataType": "tinyint", "is_nullable": false, "primaryKey": true},
+      {"columnName": "Description", "dataType": "varchar(255)", "is_nullable": false, "primaryKey": false}
+    ],
+    "relationships": []
+  },
+  {
+    "tableName": "Payments2.LevyAccount",
+    "columns": [
+      {"columnName": "AccountId", "dataType": "bigint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "AccountName", "dataType": "varchar(255)", "is_nullable": false, "primaryKey": false},
+      {"columnName": "Balance", "dataType": "decimal(18,4)", "is_nullable": false, "primaryKey": false},
+      {"columnName": "IsLevyPayer", "dataType": "bit", "is_nullable": false, "primaryKey": false},
+      {"columnName": "TransferAllowance", "dataType": "decimal(18,4)", "is_nullable": false, "primaryKey": false}
+    ],
+    "relationships": []
+  },
+  {
+    "tableName": "Payments2.LevyAccountAudit",
+    "columns": [
+      {"columnName": "Id", "dataType": "bigint", "is_nullable": false, "primaryKey": true},
+      {"columnName": "AccountId", "dataType": "bigint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "AcademicYear", "dataType": "smallint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "CollectionPeriod", "dataType": "tinyint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "SourceLevyAccountBalance", "dataType": "decimal(18,4)", "is_nullable": false, "primaryKey": false},
+      {"columnName": "TransferAllowance", "dataType": "decimal(18,4)", "is_nullable": false, "primaryKey": false}
+    ],
+    "relationships": []
+  },
+  {
+    "tableName": "Payments2.Payment",
+    "columns": [
+      {"columnName": "Id", "dataType": "bigint", "is_nullable": false, "primaryKey": true},
+      {"columnName": "EventId", "dataType": "uniqueidentifier", "is_nullable": false, "primaryKey": false},
+      {"columnName": "EarningEventId", "dataType": "uniqueidentifier", "is_nullable": false, "primaryKey": false},
+      {"columnName": "FundingSourceEventId", "dataType": "uniqueidentifier", "is_nullable": false, "primaryKey": false},
+      {"columnName": "RequiredPaymentEventId", "dataType": "uniqueidentifier", "is_nullable": true, "primaryKey": false},
+      {"columnName": "CollectionPeriod", "dataType": "tinyint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "CollectionYear", "dataType": "smallint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "DeliveryPeriod", "dataType": "tinyint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "Amount", "dataType": "decimal(15,5)", "is_nullable": false, "primaryKey": false},
+      {"columnName": "FundingSource", "dataType": "tinyint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "TransactionType", "dataType": "tinyint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "ApprenticeshipId", "dataType": "bigint", "is_nullable": true, "primaryKey": false},
+      {"columnName": "ApprenticeshipVersion", "dataType": "int", "is_nullable": true, "primaryKey": false},
+      {"columnName": "AccountId", "dataType": "bigint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "TransferSenderAccountId", "dataType": "bigint", "is_nullable": true, "primaryKey": false},
+      {"columnName": "Ukprn", "dataType": "bigint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "LearnerReferenceNumber", "dataType": "nvarchar(12)", "is_nullable": false, "primaryKey": false},
+      {"columnName": "PriceEpisodeIdentifier", "dataType": "nvarchar(50)", "is_nullable": false, "primaryKey": false},
+      {"columnName": "FundingPlatformType", "dataType": "int", "is_nullable": false, "primaryKey": false},
+      {"columnName": "JobId", "dataType": "bigint", "is_nullable": true, "primaryKey": false}
+    ],
+    "relationships": [
+      {"columnName": "EarningEventId", "targetTable": "Payments2.EarningEvent", "targetColumn": "EventId"},
+      {"columnName": "FundingSourceEventId", "targetTable": "Payments2.FundingSourceEvent", "targetColumn": "EventId"},
+      {"columnName": "RequiredPaymentEventId", "targetTable": "Payments2.RequiredPaymentEvent", "targetColumn": "EventId"},
+      {"columnName": "FundingPlatformType", "targetTable": "Payments2.FundingPlatformType", "targetColumn": "Id"},
+      {"columnName": "JobId", "targetTable": "Payments2.Job", "targetColumn": "JobId"}
+    ]
+  },
+  {
+    "tableName": "Payments2.ProviderAdjustmentPayments",
+    "columns": [
+      {"columnName": "Ukprn", "dataType": "bigint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "SubmissionId", "dataType": "uniqueidentifier", "is_nullable": false, "primaryKey": false},
+      {"columnName": "SubmissionCollectionPeriod", "dataType": "int", "is_nullable": false, "primaryKey": false},
+      {"columnName": "SubmissionAcademicYear", "dataType": "int", "is_nullable": false, "primaryKey": false},
+      {"columnName": "PaymentType", "dataType": "int", "is_nullable": false, "primaryKey": false},
+      {"columnName": "Amount", "dataType": "decimal(15,5)", "is_nullable": false, "primaryKey": false}
+    ],
+    "relationships": []
+  },
+  {
+    "tableName": "Payments2.ProviderRequiringReprocessing",
+    "columns": [
+      {"columnName": "Id", "dataType": "bigint", "is_nullable": false, "primaryKey": true},
+      {"columnName": "Ukprn", "dataType": "bigint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "CreationDate", "dataType": "datetimeoffset(7)", "is_nullable": true, "primaryKey": false}
+    ],
+    "relationships": []
+  },
+  {
+    "tableName": "Payments2.ReceivedDataLockEvent",
+    "columns": [
+      {"columnName": "Id", "dataType": "bigint", "is_nullable": false, "primaryKey": true},
+      {"columnName": "Ukprn", "dataType": "bigint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "JobId", "dataType": "bigint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "MessageType", "dataType": "nvarchar(2000)", "is_nullable": false, "primaryKey": false},
+      {"columnName": "Message", "dataType": "nvarchar(max)", "is_nullable": false, "primaryKey": false},
+      {"columnName": "ReceivedDate", "dataType": "datetimeoffset", "is_nullable": false, "primaryKey": false}
+    ],
+    "relationships": []
+  },
+  {
+    "tableName": "Payments2.RequiredPaymentEvent",
+    "columns": [
+      {"columnName": "Id", "dataType": "bigint", "is_nullable": false, "primaryKey": true},
+      {"columnName": "EventId", "dataType": "uniqueidentifier", "is_nullable": false, "primaryKey": false},
+      {"columnName": "EarningEventId", "dataType": "uniqueidentifier", "is_nullable": false, "primaryKey": false},
+      {"columnName": "ClawbackSourcePaymentEventId", "dataType": "uniqueidentifier", "is_nullable": true, "primaryKey": false},
+      {"columnName": "PriceEpisodeIdentifier", "dataType": "nvarchar(50)", "is_nullable": false, "primaryKey": false},
+      {"columnName": "ContractType", "dataType": "tinyint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "CollectionPeriod", "dataType": "tinyint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "CollectionYear", "dataType": "smallint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "DeliveryPeriod", "dataType": "tinyint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "TransactionType", "dataType": "tinyint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "AmountDue", "dataType": "decimal(15,5)", "is_nullable": false, "primaryKey": false},
+      {"columnName": "ApprenticeshipId", "dataType": "bigint", "is_nullable": true, "primaryKey": false},
+      {"columnName": "ApprenticeshipVersion", "dataType": "int", "is_nullable": true, "primaryKey": false},
+      {"columnName": "AccountId", "dataType": "bigint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "TransferSenderAccountId", "dataType": "bigint", "is_nullable": true, "primaryKey": false},
+      {"columnName": "Ukprn", "dataType": "bigint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "LearnRefNumber", "dataType": "nvarchar(12)", "is_nullable": false, "primaryKey": false},
+      {"columnName": "SfaContributionPercentage", "dataType": "decimal(15,5)", "is_nullable": false, "primaryKey": false},
+      {"columnName": "FundingLineType", "dataType": "nvarchar(100)", "is_nullable": true, "primaryKey": false},
+      {"columnName": "UseLevyBalance", "dataType": "bit", "is_nullable": true, "primaryKey": false},
+      {"columnName": "LearningType", "dataType": "tinyint", "is_nullable": false, "primaryKey": false}
+    ],
+    "relationships": [
+      {"columnName": "EarningEventId", "targetTable": "Payments2.EarningEvent", "targetColumn": "EventId"},
+      {"columnName": "LearningType", "targetTable": "Payments2.LearningType", "targetColumn": "Id"}
+    ]
+  },
+  {
+    "tableName": "Payments2.SubmittedLearnerAim",
+    "columns": [
+      {"columnName": "Id", "dataType": "bigint", "is_nullable": false, "primaryKey": true},
+      {"columnName": "Ukprn", "dataType": "bigint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "LearnerReferenceNumber", "dataType": "nvarchar(12)", "is_nullable": false, "primaryKey": false},
+      {"columnName": "LearningAimFrameworkCode", "dataType": "int", "is_nullable": false, "primaryKey": false},
+      {"columnName": "LearningAimPathwayCode", "dataType": "int", "is_nullable": false, "primaryKey": false},
+      {"columnName": "LearningAimProgrammeType", "dataType": "int", "is_nullable": false, "primaryKey": false},
+      {"columnName": "LearningAimStandardCode", "dataType": "int", "is_nullable": false, "primaryKey": false},
+      {"columnName": "LearningAimReference", "dataType": "nvarchar(8)", "is_nullable": true, "primaryKey": false},
+      {"columnName": "LearningAimFundingLineType", "dataType": "nvarchar(100)", "is_nullable": true, "primaryKey": false},
+      {"columnName": "JobId", "dataType": "bigint", "is_nullable": false, "primaryKey": false}
+    ],
+    "relationships": [
+      {"columnName": "JobId", "targetTable": "Payments2.Job", "targetColumn": "JobId"}
+    ]
+  },
+  {
+    "tableName": "Payments2.TestingProvider",
+    "columns": [
+      {"columnName": "Ukprn", "dataType": "int", "is_nullable": false, "primaryKey": true},
+      {"columnName": "LastUsed", "dataType": "datetime", "is_nullable": false, "primaryKey": false}
+    ],
+    "relationships": []
+  },
+  {
+    "tableName": "Metrics.CollectionPeriodTolerance",
+    "columns": [
+      {"columnName": "Id", "dataType": "int", "is_nullable": false, "primaryKey": true},
+      {"columnName": "AcademicYear", "dataType": "smallint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "CollectionPeriod", "dataType": "tinyint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "SubmissionToleranceLower", "dataType": "decimal(15,5)", "is_nullable": false, "primaryKey": false},
+      {"columnName": "SubmissionToleranceUpper", "dataType": "decimal(15,5)", "is_nullable": false, "primaryKey": false},
+      {"columnName": "RequiredPaymentsToleranceLower", "dataType": "decimal(15,5)", "is_nullable": false, "primaryKey": false},
+      {"columnName": "RequiredPaymentsToleranceUpper", "dataType": "decimal(15,5)", "is_nullable": false, "primaryKey": false},
+      {"columnName": "PaymentsToleranceLower", "dataType": "decimal(15,5)", "is_nullable": false, "primaryKey": false},
+      {"columnName": "PaymentsToleranceUpper", "dataType": "decimal(15,5)", "is_nullable": false, "primaryKey": false}
+    ],
+    "relationships": []
+  },
+  {
+    "tableName": "Metrics.PeriodEndSummary",
+    "columns": [
+      {"columnName": "Id", "dataType": "bigint", "is_nullable": false, "primaryKey": true},
+      {"columnName": "AcademicYear", "dataType": "smallint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "CollectionPeriod", "dataType": "tinyint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "JobId", "dataType": "bigint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "Percentage", "dataType": "decimal(15,5)", "is_nullable": false, "primaryKey": false}
+    ],
+    "relationships": []
+  },
+  {
+    "tableName": "Metrics.ProviderPeriodEndSummary",
+    "columns": [
+      {"columnName": "Id", "dataType": "bigint", "is_nullable": false, "primaryKey": true},
+      {"columnName": "Ukprn", "dataType": "bigint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "AcademicYear", "dataType": "smallint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "CollectionPeriod", "dataType": "tinyint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "JobId", "dataType": "bigint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "Percentage", "dataType": "decimal(15,5)", "is_nullable": false, "primaryKey": false}
+    ],
+    "relationships": []
+  },
+  {
+    "tableName": "Metrics.ProviderPaymentTransaction",
+    "columns": [
+      {"columnName": "Id", "dataType": "bigint", "is_nullable": false, "primaryKey": true},
+      {"columnName": "ProviderPeriodEndSummaryId", "dataType": "bigint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "ContractType", "dataType": "tinyint", "is_nullable": false, "primaryKey": false}
+    ],
+    "relationships": []
+  },
+  {
+    "tableName": "Metrics.ProviderPaymentFundingSource",
+    "columns": [
+      {"columnName": "Id", "dataType": "bigint", "is_nullable": false, "primaryKey": true},
+      {"columnName": "ProviderPeriodEndSummaryId", "dataType": "bigint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "ContractType", "dataType": "tinyint", "is_nullable": false, "primaryKey": false}
+    ],
+    "relationships": []
+  },
+  {
+    "tableName": "Metrics.SubmissionEarningType",
+    "columns": [
+      {"columnName": "Id", "dataType": "tinyint", "is_nullable": false, "primaryKey": true},
+      {"columnName": "Description", "dataType": "varchar(500)", "is_nullable": false, "primaryKey": false}
+    ],
+    "relationships": []
+  },
+  {
+    "tableName": "Metrics.SubmissionSummary",
+    "columns": [
+      {"columnName": "Id", "dataType": "bigint", "is_nullable": false, "primaryKey": true},
+      {"columnName": "Ukprn", "dataType": "bigint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "AcademicYear", "dataType": "smallint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "CollectionPeriod", "dataType": "tinyint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "JobId", "dataType": "bigint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "Percentage", "dataType": "decimal(15,5)", "is_nullable": false, "primaryKey": false},
+      {"columnName": "ProviderName", "dataType": "nvarchar(1000)", "is_nullable": true, "primaryKey": false}
+    ],
+    "relationships": []
+  },
+  {
+    "tableName": "Metrics.ProviderDataLockCounts",
+    "columns": [
+      {"columnName": "Id", "dataType": "bigint", "is_nullable": false, "primaryKey": true},
+      {"columnName": "SubmissionSummaryId", "dataType": "bigint", "is_nullable": false, "primaryKey": false}
+    ],
+    "relationships": [
+      {"columnName": "SubmissionSummaryId", "targetTable": "Metrics.SubmissionSummary", "targetColumn": "Id"}
+    ]
+  },
+  {
+    "tableName": "Metrics.ProviderEarning",
+    "columns": [
+      {"columnName": "Id", "dataType": "bigint", "is_nullable": false, "primaryKey": true},
+      {"columnName": "SubmissionSummaryId", "dataType": "bigint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "EarningsType", "dataType": "tinyint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "ContractType", "dataType": "tinyint", "is_nullable": false, "primaryKey": false}
+    ],
+    "relationships": [
+      {"columnName": "SubmissionSummaryId", "targetTable": "Metrics.SubmissionSummary", "targetColumn": "Id"},
+      {"columnName": "EarningsType", "targetTable": "Metrics.SubmissionEarningType", "targetColumn": "Id"}
+    ]
+  },
+  {
+    "tableName": "Metrics.ProviderRequiredPayment",
+    "columns": [
+      {"columnName": "Id", "dataType": "bigint", "is_nullable": false, "primaryKey": true},
+      {"columnName": "SubmissionSummaryId", "dataType": "bigint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "ContractType", "dataType": "tinyint", "is_nullable": false, "primaryKey": false}
+    ],
+    "relationships": [
+      {"columnName": "SubmissionSummaryId", "targetTable": "Metrics.SubmissionSummary", "targetColumn": "Id"}
+    ]
+  },
+  {
+    "tableName": "Metrics.SubmissionsSummary",
+    "columns": [
+      {"columnName": "Id", "dataType": "bigint", "is_nullable": false, "primaryKey": true},
+      {"columnName": "IsWithinTolerance", "dataType": "bit", "is_nullable": false, "primaryKey": false},
+      {"columnName": "AcademicYear", "dataType": "smallint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "CollectionPeriod", "dataType": "tinyint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "JobId", "dataType": "bigint", "is_nullable": false, "primaryKey": false},
+      {"columnName": "Percentage", "dataType": "decimal(15,5)", "is_nullable": false, "primaryKey": false}
+    ],
+    "relationships": []
+  },
+  {
+    "tableName": "Metrics.SubmissionsSummaryDataLockCounts",
+    "columns": [
+      {"columnName": "Id", "dataType": "bigint", "is_nullable": false, "primaryKey": true},
+      {"columnName": "SubmissionsSummaryId", "dataType": "bigint", "is_nullable": false, "primaryKey": false}
+    ],
+    "relationships": [
+      {"columnName": "SubmissionsSummaryId", "targetTable": "Metrics.SubmissionsSummary", "targetColumn": "Id"}
+    ]
+  }
+]
