@@ -1,0 +1,99 @@
+[
+  {
+    "id": "TalentSuite.Shared.Messaging.Events.BidSubmittedEvent",
+    "name": "BidSubmittedEvent",
+    "description": "Event raised when a bid is submitted.",
+    "payload": [
+      {
+        "field": "BidId",
+        "type": "string",
+        "required": true,
+        "description": "The unique ID of the bid."
+      }
+    ]
+  },
+  {
+    "id": "TalentSuite.Shared.Messaging.Events.CommentSavedWithMentionsEvent",
+    "name": "CommentSavedWithMentionsEvent",
+    "description": "Event raised when a comment with mentions is saved.",
+    "payload": [
+      {
+        "field": "BidId",
+        "type": "string",
+        "required": true,
+        "description": "The bid this comment belongs to."
+      },
+      {
+        "field": "QuestionId",
+        "type": "string",
+        "required": true,
+        "description": "The question this comment belongs to."
+      },
+      {
+        "field": "CommentId",
+        "type": "string",
+        "required": true,
+        "description": "The comment's unique ID."
+      },
+      {
+        "field": "AuthorEmail",
+        "type": "string",
+        "required": true,
+        "description": "Email of the comment's author."
+      },
+      {
+        "field": "MentionedEmails",
+        "type": "array",
+        "required": true,
+        "description": "List of email addresses mentioned in the comment.",
+        "items": {
+          "type": "string",
+          "fields": []
+        }
+      },
+      {
+        "field": "QuestionLink",
+        "type": "string",
+        "required": true,
+        "description": "Direct link to the question."
+      }
+    ]
+  },
+  {
+    "id": "TalentSuite.Shared.Bids.DocumentIngestionJobEventResponse",
+    "name": "DocumentIngestionJobEventResponse",
+    "description": "Event indicating current state of a document ingestion job.",
+    "payload": [
+      {
+        "field": "Status",
+        "type": "string",
+        "required": true,
+        "description": "Current status of the job."
+      },
+      {
+        "field": "Message",
+        "type": "string",
+        "required": true,
+        "description": "Additional info or error message."
+      },
+      {
+        "field": "IsComplete",
+        "type": "bool",
+        "required": true,
+        "description": "Whether job is complete."
+      },
+      {
+        "field": "IsError",
+        "type": "bool",
+        "required": true,
+        "description": "Whether job ended with error."
+      },
+      {
+        "field": "CreatedAtUtc",
+        "type": "DateTime",
+        "required": true,
+        "description": "Time (UTC) the job was created."
+      }
+    ]
+  }
+]
